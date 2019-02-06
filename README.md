@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/andela/ah-the-unsullied-frontend/tree/develop.svg?style=svg)](https://circleci.com/gh/andela/ah-the-unsullied-frontend/tree/develop)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
