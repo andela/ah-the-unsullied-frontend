@@ -1,39 +1,20 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers/index';
+import { logger } from 'redux-logger';
+import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import rootReducer from '../reducers';
 
-const initialState = {};
 
-function configureStoreProd() {
-  const middlewares = [thunk];
+let middlewares = [thunk];
+const devMiddleware = [logger, reduxImmutableStateInvariant()];
 
-  return createStore(
-    initialState,
-    rootReducer,
-    compose(applyMiddleware(...middlewares))
-  );
+if (process.env === 'development') {
+  middlewares.concat(devMiddleware);
 }
 
-function configureStoreDev() {
-  const middlewares = [thunk];
-  // add support for Redux dev tools
-  const reduxDevTools =
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__();
-  const store = createStore(
-    rootReducer,
-    initialState,
-    compose(
-      applyMiddleware(...middlewares),
-      reduxDevTools
-    )
-  );
-  return store;
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const configureStore =
-  process.env.NODE_ENV === 'production'
-    ? configureStoreProd
-    : configureStoreDev;
-
-export default configureStore;
+export default createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(...middlewares))
+);

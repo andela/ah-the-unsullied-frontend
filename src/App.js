@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { updateCount } from './actions/button';
 import './app.scss';
-import Home from './components/home/Home'; 
-import Login from './components/login/Login';
+import Home from './components/home/home';
+import Login from './components/login/login';
 import Navigation from './components/common/nav/Nav';
 
 class App extends Component {
@@ -32,24 +32,22 @@ class App extends Component {
         <h1>{this.state.count}</h1>
         <button onClick={this.handleClick}>Add count</button>
         <Router>
-        <div className='App'>
-          <Navigation />
-          <Switch>
-            <Route path='/' component={Home} exact Strict />
-            <Route path='/login' component={Login} exact />
-          </Switch>
-        </div>
-      </Router>
+          <div className="App">
+            <Navigation />
+            <Switch>
+              <Route path="/" component={Home} exact Strict />
+              <Route path="/login" component={Login} exact />
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
 }
 
-
 App.propTypes = {
   updateCount: PropTypes.func.isRequired
 };
-
 
 const mapStateToProps = state => ({
   count: state.count
