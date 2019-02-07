@@ -4,6 +4,8 @@ version: 2
 jobs:
   # entry point
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 02ee0c416c5760a0001d59f1da06166f95d26e7d3c261d2576dd6275918eb284
     # directory where steps will run
     working_directory: ~/repo
     # run the steps with Docker
@@ -14,23 +16,26 @@ jobs:
       # special step to check out source code to working directory
       - checkout
       - run:
-            name: codeclimate-test-reporter
-            command: |
-              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-              chmod +x ./cc-test-reporter
-      
-      - restore_cache:
-           key: dependency-cache-{{ checksum "package.json" }}
+          name: codeclimate-test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
-      - run :
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run:
           name: install dependencies
           command: npm install
 
       # cache node modules to speed up subsequent builds
       - save_cache:
-            key: dependency-cache-{{ checksum "package.json" }}
-            paths:
-              - ./node_modules
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
-          name: tests
-          command: npm test
+          name: Run Test and Coverage
+          command: |
+            ./cc-test-reporter before-build
+            npm test -- --coverage
+            ./cc-test-reporter after-build --exit-code $?
