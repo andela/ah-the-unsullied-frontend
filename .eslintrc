@@ -1,41 +1,41 @@
 {
-  "extends": [
-    "airbnb",
-    "eslint:recommended",
-    "prettier", "prettier/react"],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "react/jsx-filename-extension": 0,
-    "react/forbid-prop-types": 0,
-    "no-underscore-dangle": "off",
-    "import/prefer-default-export": "off",
-    "linebreak-style": [
-        "error",
-        "unix"
+    "extends": [
+      "airbnb",
+      "eslint:recommended",
+      "prettier", "prettier/react"],
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "react/jsx-filename-extension": 0,
+      "react/forbid-prop-types": 0,
+      "no-underscore-dangle": "off",
+      "import/prefer-default-export": "off",
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ]
+    },
+    "parserOptions" : {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
     ],
-    "quotes": [
-        "error",
-        "single"
-    ],
-    "semi": [
-        "error",
-        "always"
-    ]
-  },
-  "parserOptions" : {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-  },
-  "plugins": [
-      "react",
-      "prettier"
-  ],
-  "parser": "babel-eslint"
- }
+    "parser": "babel-eslint"
+   }
