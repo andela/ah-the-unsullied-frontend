@@ -1,32 +1,34 @@
 {
     "extends": [
-      "airbnb",
-      "eslint:recommended",
-      "prettier", "prettier/react"],
+        "airbnb",
+        "eslint:recommended",
+        "prettier",
+        "prettier/react"
+    ],
     "env": {
-      "es6": true,
-      "browser": true,
-      "node": true
+        "es6": true,
+        "browser": true,
+        "node": true
     },
     "rules": {
-      "react/jsx-filename-extension": 0,
-      "react/forbid-prop-types": 0,
-      "no-underscore-dangle": "off",
-      "import/prefer-default-export": "off",
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "always"
-      ]
+        "react/jsx-filename-extension": 0,
+        "react/forbid-prop-types": 0,
+        "no-underscore-dangle": "off",
+        "import/prefer-default-export": "off",
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
     },
-    "parserOptions" : {
+    "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
@@ -37,5 +39,9 @@
         "react",
         "prettier"
     ],
-    "parser": "babel-eslint"
-   }
+    "parser": "babel-eslint",
+    "globals": {
+        "describe": true,
+        "it": true
+    }
+}

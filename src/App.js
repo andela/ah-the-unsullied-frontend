@@ -17,7 +17,6 @@ class App extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
   handleClick = () => {
     this.setState({
       count: this.state.count + 1
