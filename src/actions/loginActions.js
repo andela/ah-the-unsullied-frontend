@@ -1,8 +1,9 @@
+
 import { toast } from 'react-toastify';
 import setAuthToken from '../utils/setAuthToken';
 
 import axiosConfig from '../axiosConfig';
-import { GET_ERRORS, SET_CURRENT_USER } from './actionTypes';
+import { GET_ERRORS, SET_CURRENT_USER, LOGOUT_USER } from './actionTypes';
 
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
@@ -32,7 +33,7 @@ export const loginUser = userData => dispatch => {
       });
     })
     .catch(err => {
-      toast.error(err.response.data.errors.error[0], { autoClose: false });
+      toast.error(err.response.data.errors.error[0]);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
@@ -48,11 +49,11 @@ export const setCurrentUser = decoded => {
   };
 };
 
+
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
-  localStorage.removeItem('jwtToken');
-  // Remove auth header for future requests
-  setAuthToken(false);
-  // Set current user to {} which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
+  localStorage.removeItem("jwtToken");
+  dispatch({
+    type: LOGOUT_USER
+  });
 };

@@ -1,10 +1,10 @@
-import React from 'react'; 
-
+import React from 'react';
+import Nav from '../common/nav';
 
 export const Home = () => {
-        return(
-         <div>
-             <p>home page</p>
-         </div>
-        );
-    };
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
+};
