@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { Button } from 'react-materialize';
-import Login from '../../login';
 import '../../../assets/css/nav.scss';
 import Logo from '../../../assets/images/Logo.png';
 import { logoutUser } from '../../../actions/loginActions';
@@ -28,7 +26,7 @@ class Nav extends Component {
     const guestLinks = (
       <ul className="right hide-on-med-and-down">
         <li>
-          <Login />
+          <a href="/login" className="btn white indigo-text">Login</a>
         </li>
         <li>
           <Button>SignUp</Button>

@@ -1,0 +1,6 @@
+export const FACEBOOK = 'FB_ACCESS_CODE';
+export const GOOGLE = 'GOOGLE_ACCESS_CODE';
+export const TWITTER = 'TWITTER_ACCESS_CODE';
+export const RECEIVE_DATA = 'RECEIVED_RESPONSE';
+export const FETCH_CALL = 'FETCH_STARTED';
+export const FETCH_FAILED = 'FETCH_FAILED';
