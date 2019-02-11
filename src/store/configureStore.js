@@ -4,6 +4,10 @@ import { logger } from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
 import rootReducer from '../reducers';
+const initialState = {
+  profile: {
+  }
+}
 
 let middlewares = [
   thunk
@@ -18,5 +22,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(
   rootReducer,
+  initialState,
   composeEnhancers(applyMiddleware(...middlewares))
 );

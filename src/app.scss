@@ -1,0 +1,16 @@
+.Scss {
+  color: blue($color: #dfdf);
+  background-color: white;
+}
+// extend .Scss class featues
+
+.App {
+  @extend .Scss;
+  border-radius: 5px;
+  min-height: 70px;
+  margin: 7px;
+}
+
+/* multi
+ line
+ comment*/

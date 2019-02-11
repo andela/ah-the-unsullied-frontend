@@ -6,4 +6,9 @@ export default  combineReducers({
   auth : loginReducer,
   errors: errorReducer
   
+import profile from '../reducers/profile/profile';
+
+
+export default combineReducers({
+    profile
 });
