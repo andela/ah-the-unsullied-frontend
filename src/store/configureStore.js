@@ -2,11 +2,15 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { logger } from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+
+
 import rootReducer from '../reducers';
 
-
-let middlewares = [thunk];
+let middlewares = [
+  thunk
+];
 const devMiddleware = [logger, reduxImmutableStateInvariant()];
+
 
 if (process.env === 'development') {
   middlewares.concat(devMiddleware);
