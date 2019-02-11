@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import buttonReducer from './buttonReducer';
+import profile from '../reducers/profile/profile';
+
 
 export default combineReducers({
-  count: buttonReducer
+    profile
 });
