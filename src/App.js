@@ -1,41 +1,27 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'; 
+import 'materialize-css/dist/css/materialize.min.css';
+import Navbar from './components/common/nav/Nav';
 import PropTypes from 'prop-types';
-
-import { updateCount } from './actions/button';
 import './app.scss';
-import Home from './components/home/home'; 
 import Login from './components/login/login';
-import Navigation from './components/common/nav/Nav';
+import Profile from './components/Profile/Profile';
+import 'materialize-css/dist/css/materialize.min.css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
 
-    this.props.updateCount(this.state.count);
-  };
-
+ 
   render() {
     return (
       <div>
-        <h1>{this.state.count}</h1>
-        <button onClick={this.handleClick}>Add count</button>
         <Router>
           <div className="App">
-            <Navigation />
+            <Navbar />
             <Switch>
-              <Route path="/" component={Home} exact Strict />
               <Route path="/login" component={Login} exact />
+              <Route path="/profile" component={Profile} exact />
             </Switch>
           </div>
         </Router>
@@ -44,14 +30,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  updateCount: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => ({
-  count: state.count
-});
-export default connect(
-  mapStateToProps,
-  { updateCount }
-)(App);
+export default App;
