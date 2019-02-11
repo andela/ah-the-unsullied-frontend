@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
-import buttonReducer from './buttonReducer';
+import loginReducer from './login';
+import errorReducer from './errorReducer';
 
-export default combineReducers({
-  count: buttonReducer
+export default  combineReducers({
+  auth : loginReducer,
+  errors: errorReducer
+  
 });
