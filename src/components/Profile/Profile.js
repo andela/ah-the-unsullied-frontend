@@ -1,38 +1,43 @@
-import React, { Component } from "react";
-import ProfileView from "./views/profile";
-import * as profileActions from "../../actions/profile/profile";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Col, Preloader, Row } from 'react-materialize';
+import ProfileView from './views/viewProfileView';
+import * as profileActions from '../../actions/profile/profile';
 
 class Profile extends Component {
   state = {
-    fetched : false
-  }
-  componentDidMount= () => {
-    console.log(this.props)
+    fetched: false
+  };
+  componentDidMount = () => {
     const { actions } = this.props;
-    actions.getUserProfile('sammy').then(() =>{
+    actions.getUserProfile('sammy').then(() => {
       this.setState({
-        fetched:true
-      })
+        fetched: true
+      });
     });
-   
-  }
- 
+  };
+
   render() {
-    if(!this.state.fetched){
-      return(
-        <div>Loading...</div>
-      )
+    if (!this.state.fetched) {
+      return (
+        <div>
+          <Row>
+            <Col s={12}>
+              <Preloader size="big" />
+            </Col>
+          </Row>
+        </div>
+      );
+    } else {
+      const { profile } = this.props.UserProfile;
+
+      return (
+        <div>
+          <ProfileView profile={profile} />
+        </div>
+      );
     }
-    else{
-    const {profile} = this.props.UserProfile
-  
-    return (
-      <div>
-        <ProfileView profile={profile}/>
-      </div>
-    );}
   }
 }
 

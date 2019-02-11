@@ -4,14 +4,12 @@ import { logger } from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
 import rootReducer from '../reducers';
-const initialState = {
-  profile: {
-  }
-}
 
-let middlewares = [
-  thunk
-];
+const initialState = {
+  profile: {}
+};
+
+let middlewares = [thunk];
 const devMiddleware = [logger, reduxImmutableStateInvariant()];
 
 if (process.env === 'development') {
