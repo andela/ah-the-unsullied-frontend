@@ -6,9 +6,9 @@ import * as SocialFunctions from '../../actions/SocialAuth/SocialLoginActions';
 import { auth, GoogleProvider, FacebookProvider, TwitterProvider } from './firebase';
 import Login from '../../components/login';
 import { FACEBOOK, GOOGLE, TWITTER } from '../../actions/SocialAuth/SocialAuthTypes';
+import SignUp from '../auth/SignUp'
 
-
-class SocialAuthActions extends Component {
+export class SocialAuthActions extends Component {
   constructor(props) {
     super(props);
 
@@ -145,10 +145,7 @@ class SocialAuthActions extends Component {
           </div>
             <Login/>
             <br/>
-
-            <a className='waves-light btn' id='signup' href="/">
-              <i className='material-icons left'>add_circle</i> Create an account
-            </a>
+            <SignUp/>
           </div>
         </div>
       </div>
