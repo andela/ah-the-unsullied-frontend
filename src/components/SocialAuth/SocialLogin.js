@@ -6,9 +6,10 @@ import * as SocialFunctions from '../../actions/SocialAuth/SocialLoginActions';
 import { auth, GoogleProvider, FacebookProvider, TwitterProvider } from './firebase';
 import Login from '../../components/login';
 import { FACEBOOK, GOOGLE, TWITTER } from '../../actions/SocialAuth/SocialAuthTypes';
+import * as LoginActions from '../../actions/loginActions'
 import SignUp from '../auth/SignUp'
 
-export class SocialAuthActions extends Component {
+class SocialAuthActions extends Component {
   constructor(props) {
     super(props);
 
@@ -81,6 +82,7 @@ export class SocialAuthActions extends Component {
 
         let token = response.data.user['token'];
         localStorage.setItem('token', token);
+        passedData.authenticate(response.data.user['username']);
         passedData.history.push('/');
 
       })
@@ -156,6 +158,7 @@ export class SocialAuthActions extends Component {
 export function mapStateToProps(state, myProps) {
   return {
     socialAuth: state.socialAuth,
+    auth: state.auth,
     myProps
   };
 }
@@ -171,6 +174,7 @@ export function mapDispatchToProps(dispatch) {
     receivedUsers: (data) => dispatch(SocialFunctions.receivedUserData(data)),
     fetchingCall: () => dispatch(SocialFunctions.fetchingCall()),
     fetchFailed: data => dispatch(SocialFunctions.fetchFailed(data)),
+    authenticate: (data) => dispatch(LoginActions.setCurrentUser(data)),
   };
 }
 // eslint-disable-next-line react/prefer-stateless-function

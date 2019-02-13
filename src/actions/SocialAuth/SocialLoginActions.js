@@ -1,7 +1,7 @@
 import {
   RECEIVE_DATA,
   FETCH_CALL,
-  FETCH_FAILED
+  FETCH_FAILED,
 } from './SocialAuthTypes';
 
 

@@ -56,8 +56,8 @@ class Nav extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 Nav.propTypes = {
   logoutUser: PropTypes.func.isRequired,

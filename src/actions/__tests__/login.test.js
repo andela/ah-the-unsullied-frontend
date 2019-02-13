@@ -1,7 +1,6 @@
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import configureMockStore from 'redux-mock-store';
-
 import * as types from '../actionTypes';
 import * as actions from '../loginActions';
 
