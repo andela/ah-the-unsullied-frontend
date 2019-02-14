@@ -1,55 +1,68 @@
-import React from 'react'; 
-import {Card, CardTitle, Row, Col, Modal, Input} from 'react-materialize'
-import Button from 'react-materialize/lib/Button';
-import EditProfile from '../ViewProfile';
-import Icon from 'react-materialize/lib/Icon';
+import React from "react";
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import EditProfile from "../EditProfile";
 
+const profile = props => {
+  const { profile } = props;
 
-const profile = (props) =>{
   
-  const { profile } = props
 
   const getImage = () => {
-    if(!profile.image){
-      return (<Icon>user_circle</Icon>)
-    }else{
-      return( <img src = { profile.image } 
-        className="responsive-img circle" 
-        height="100px" width="100px"/>)
+    
+    if (!profile.image) {
+      return (
+        <img
+        src={require ("../../../assets/images/profile.png")}
+        className="responsive-img"
+        height="200px"
+        width="200px"
+      /> );
+    } else {
+      return( <img
+        src={profile.image}
+        className="responsive-img"
+        height="200px"
+        width="200px"
+      /> )
     }
-  }
-    return(
-      <>
-        <div className="container">
-          <div className="row">
-            <div className="card">
-              <div className="card-image">
-                <img  alt="" />
-                <span className="card-title"><a className="green-text" ></a></span>
-                </div>
-              <div className="card-content">
-          <div className="row">
-          <div className="col s={6}">
-            { getImage() }
+  };
 
-          </div> 
-            <div className="col s={6}">
-            <p><b>{profile.username}</b></p>
-            <br></br>
-            <p>{profile.bio}</p>
-            <EditProfile {...profile}/>
-          </div> 
-          <div>
-          </div>
-          </div>
+  return (
+
+    <div className="row">
+      <div className="col s12">
+        <div className="profile">
+          <div className="card profile">
+            <div className="card-content">
+              <div className="row">
+                <div className="col s2">
+                  <div />
+                  <div className="profile_image">
+              
+                  {getImage()}
+                  </div>
+                   
+                </div>
+                <div className="bio col s8">
+                  <div className="username">{profile.username}</div>
+                  <div className="bio col s4">{profile.bio}</div>
+                </div>
+                <div className="bio col s2">
+                  <EditProfile {...profile} />
+                </div>
+              </div>
             </div>
-            <br />
-            <br />
-          </div>
+            <div className="card-action">
+              <a href="#">articles</a>
+              <a href="#">highlights</a>
+              <a href="#">Followers</a>
+              <a href="#">Following</a>
+              <a href="#">Ratings</a>
+            </div>
           </div>
         </div>
-      </>
-      );
+      </div>
+    </div>
+  );
 };
 export default profile;

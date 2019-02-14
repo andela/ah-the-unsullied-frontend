@@ -1,3 +1,29 @@
 .nav-wrapper a {
   color: lightgreen;
 }
+
+@media only screen and (min-width: 768px) {
+  .nav-wrapper {
+    margin: 0 100px 0 100px;
+  }
+}
+
+.bio {
+  color: gray;
+}
+
+.username {
+  color: black;
+}
+
+.edit {
+  background-color: #35a7ff;
+}
+
+.card-action a {
+  color: black !important;
+}
+
+.profile {
+  background-color: #ffffff;
+}

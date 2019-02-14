@@ -7,7 +7,8 @@ import './app.scss';
 import Login from './components/login/login';
 import Profile from './components/Profile/Profile';
 import 'materialize-css/dist/css/materialize.min.css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+            <ToastContainer/>
             <Switch>
               <Route path="/login" component={Login} exact />
               <Route path="/profile" component={Profile} exact />

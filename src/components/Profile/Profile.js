@@ -3,43 +3,41 @@ import ProfileView from "./views/viewProfileView";
 import * as profileActions from "../../actions/profile/profile";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {Col, Preloader, Row} from 'react-materialize'; 
-
+import { Col, Preloader, Row } from "react-materialize";
 
 class Profile extends Component {
   state = {
-    fetched : false
-  }
-  componentDidMount= () => {
-    console.log(this.props)
+    fetched: false
+  };
+  componentDidMount = () => {
     const { actions } = this.props;
-    actions.getUserProfile('sammy').then(() =>{
+    actions.getUserProfile("neshdev").then(() => {
       this.setState({
-        fetched:true
-      })
+        fetched: true
+      });
     });
-  }
- 
+  };
+
   render() {
-    if(!this.state.fetched){
-      return(
+    if (!this.state.fetched) {
+      return (
         <div>
-        <Row>
-        <Col s={12}>
-    <Preloader size='big'/>
-      </Col>
-        </Row>        
+          <Row>
+            <Col s={12}>
+              <Preloader size="big" />
+            </Col>
+          </Row>
         </div>
-      )
+      );
+    } else {
+      const { profile } = this.props.UserProfile;
+
+      return (
+        <div>
+          <ProfileView profile={profile} />
+        </div>
+      );
     }
-    else{
-    const {profile} = this.props.UserProfile
-  
-    return (
-      <div>
-        <ProfileView profile={profile}/>
-      </div>
-    );}
   }
 }
 
