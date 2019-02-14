@@ -21,7 +21,7 @@ class Navbar extends React.Component {
     );
     return (
       <React.Fragment>
-        <MaterialNavbar fixed className="white" brand={Img} right>
+        <MaterialNavbar fixed className="" brand={Img} right>
           <React.Fragment>
             <NavItem href="/">Home </NavItem>
             <NavItem href="login">Login</NavItem>

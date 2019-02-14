@@ -11,7 +11,7 @@ class Profile extends Component {
   };
   componentDidMount = () => {
     const { actions } = this.props;
-    actions.getUserProfile("neshdev").then(() => {
+    actions.getUserProfile("sammy").then(() => {
       this.setState({
         fetched: true
       });

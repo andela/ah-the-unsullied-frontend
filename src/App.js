@@ -1,13 +1,12 @@
+import 'react-toastify/dist/ReactToastify.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react'; 
-import 'materialize-css/dist/css/materialize.min.css';
 import Navbar from './components/common/nav/Nav';
 import PropTypes from 'prop-types';
 import './app.scss';
 import Login from './components/login/login';
 import Profile from './components/Profile/Profile';
-import 'materialize-css/dist/css/materialize.min.css';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 
