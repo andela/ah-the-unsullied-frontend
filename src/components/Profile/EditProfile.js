@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import * as profileActions from "../../actions/profile/profile";
 import { Row, Col, Modal, Input } from "react-materialize";
 import ImageUploaoder from "../../utils/ImageUploaoder";
+import '../../assets/styles/HomePage.scss';
 
 
 class ViewProfile extends Component {
@@ -12,7 +13,7 @@ class ViewProfile extends Component {
     super(props);
     this.state = {
       bio: "",
-      image: ""
+      image: props.image
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.handleSubmit.bind(this);
@@ -50,6 +51,7 @@ class ViewProfile extends Component {
       <div>
         <Modal
           header="Profile Edit"
+          className="editPage"
           fixedFooter
           trigger={
             <button className="btn waves-effect edit">
@@ -74,7 +76,7 @@ class ViewProfile extends Component {
                 label="Bio"
                 name="bio"
                 onChange={this.onChange}
-                validate
+
                 defaultValue={this.props.bio}
               />
               <Input
@@ -90,7 +92,6 @@ class ViewProfile extends Component {
               />
               <Row>
                 <button className="btn waves-effect edit " type="submit">
-                  {" "}
                   Update
                 </button>
               </Row>

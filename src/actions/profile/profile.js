@@ -1,5 +1,5 @@
 import endpoint from "../../utils/axios";
-import { VIEW_PROFILE, EDIT_PROFILE } from "../profile/profileTypes";
+import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from "../profile/profileTypes";
 import { toast } from "react-toastify";
 
 export const getUserProfile = username => async dispatch => {
@@ -12,7 +12,7 @@ export const getUserProfile = username => async dispatch => {
       });
     })
     .catch(err => {
-      console.log(err.message);
+      console.log("the error is heere",err)
     });
 };
 
@@ -24,9 +24,10 @@ export const EditUserProfile = (username, data) => async dispatch => {
         type: EDIT_PROFILE,
         payload: response.data.profile
       });
+      
       toast.success("Updated Successfully");
     })
     .catch(errors => {
-      console.log(errors);
+      console.log(errors)
     });
 };

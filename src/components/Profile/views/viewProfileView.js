@@ -1,36 +1,36 @@
 import React from "react";
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import MaterialIcon, { colorPalette } from "material-icons-react";
 import EditProfile from "../EditProfile";
 
 const profile = props => {
   const { profile } = props;
 
-  
-
   const getImage = () => {
-    
     if (!profile.image) {
       return (
         <img
-        src={require ("../../../assets/images/profile.png")}
-        className="responsive-img"
-        height="200px"
-        width="200px"
-      /> );
+          src={require("../../../assets/images/profile.png")}
+          className="responsive-img"
+          height="200px"
+          width="200px"
+        />
+      );
     } else {
-      return( <img
-        src={profile.image}
-        className="responsive-img"
-        height="200px"
-        width="200px"
-      /> )
+      return (
+        <img
+          src={profile.image}
+          className="responsive-img"
+          height="200px"
+          width="200px"
+        />
+      );
     }
   };
 
   return (
-
     <div className="row">
-      <div className="col s12">
+      <div className="col s1" />
+      <div className="col s10">
         <div className="profile">
           <div className="card profile">
             <div className="card-content">
@@ -38,16 +38,35 @@ const profile = props => {
                 <div className="col s2">
                   <div />
                   <div className="profile_image">
-              
-                  {getImage()}
+                      { getImage() }
                   </div>
-                   
                 </div>
                 <div className="bio col s8">
                   <div className="username">{profile.username}</div>
-                  <div className="bio col s4">{profile.bio}</div>
+                  <ul className="statistics">
+                    <li className="artStat">
+                      <span>
+                        <span className="number">0</span>
+                        Articles
+                      </span>
+                    </li>
+                    <li className="artStat">
+                      <span>
+                        <span className="number">10</span>
+                        Following
+                      </span>
+                    </li>
+                    <li className="artStat">
+                      <span>
+                        <span className="number">30</span>
+                        Followers
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="bio1">Bio</div>
+                  <div className="bio">{profile.bio}</div>
                 </div>
-                <div className="bio col s2">
+                <div className=" col s2">
                   <EditProfile {...profile} />
                 </div>
               </div>
@@ -62,6 +81,7 @@ const profile = props => {
           </div>
         </div>
       </div>
+      <div className="col s1" />
     </div>
   );
 };
