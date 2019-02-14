@@ -1,8 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Navbar as MaterialNavbar, NavItem, Icon, Dropdown } from 'react-materialize';
-import '../../../assets/styles/HomePage.scss'; 
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import {
+  Navbar as MaterialNavbar,
+  NavItem,
+  Icon,
+  Dropdown,
+  Button
+} from 'react-materialize';
+import '../../../assets/styles/HomePage.scss';
 
 class Navbar extends React.Component {
   render() {
@@ -16,14 +21,11 @@ class Navbar extends React.Component {
     );
     return (
       <React.Fragment>
-        <MaterialNavbar fixed className="white" brand={Img} right>
+        <MaterialNavbar fixed className="" brand={Img} right>
           <React.Fragment>
-          <NavItem href="/">Home </NavItem> 
-          <NavItem href="login">Login
-          </NavItem>
-            <Dropdown trigger={
-              <MaterialIcon className="" icon="account_circle" />
-              }>
+            <NavItem href="/">Home </NavItem>
+            <NavItem href="login">Login</NavItem>
+            <Dropdown trigger={<Button>profile</Button>}>
               <NavItem>one</NavItem>
               <NavItem>two</NavItem>
               <NavItem divider />

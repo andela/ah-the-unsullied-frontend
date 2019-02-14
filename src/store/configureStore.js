@@ -7,7 +7,7 @@ import rootReducer from '../reducers';
 const initialState = {
   profile: {
   }
-}
+};
 
 let middlewares = [thunk];
 const devMiddleware = [logger, reduxImmutableStateInvariant()];

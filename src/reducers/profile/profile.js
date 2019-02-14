@@ -3,7 +3,7 @@ import { VIEW_PROFILE,  EDIT_PROFILE
 
 const initialState = {
     profile :{}
-}
+};
 
 export default ( state = initialState, action) => {
     switch(action.type) {

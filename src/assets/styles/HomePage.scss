@@ -1,3 +1,53 @@
 .nav-wrapper a {
   color: lightgreen;
 }
+
+@media only screen and (min-width: 768px) {
+  .nav-wrapper {
+    margin: 0 100px 0 100px;
+  }
+}
+
+.bio {
+  color: gray;
+}
+
+.bio1 {
+  color: black;
+}
+
+.username {
+  color: black;
+}
+
+.edit {
+  background-color: #35a7ff;
+}
+
+.card-action a {
+  color: black !important;
+}
+
+.profile {
+  background-color: #ffffff;
+}
+
+.editPage {
+  width: 400px;
+}
+
+.editPageProfile {
+  margin-left: 70px;
+}
+
+.statistics li {
+  display: inline;
+  margin-right: 25px;
+}
+.number {
+  margin-right: 5px;
+  color: black !important;
+}
+.username {
+  font-size: 40px;
+}

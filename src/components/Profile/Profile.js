@@ -1,9 +1,12 @@
-import React, { Component } from "react";
-import ProfileView from "./views/viewProfileView";
-import * as profileActions from "../../actions/profile/profile";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+
+import ProfileView from './views/viewProfileView';
+import * as profileActions from '../../actions/profile/profile';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {Col, Preloader, Row} from 'react-materialize'; 
+
+
 
 
 class Profile extends Component {
@@ -11,13 +14,14 @@ class Profile extends Component {
     fetched : false
   }
   componentDidMount= () => {
-    console.log(this.props)
+    console.log(this.props);
     const { actions } = this.props;
     actions.getUserProfile('sammy').then(() =>{
       this.setState({
         fetched:true
-      })
+      });
     });
+   
   }
  
   render() {
@@ -30,10 +34,11 @@ class Profile extends Component {
       </Col>
         </Row>        
         </div>
-      )
+      
+      );
     }
     else{
-    const {profile} = this.props.UserProfile
+    const {profile} = this.props.UserProfile;
   
     return (
       <div>
