@@ -1,7 +1,5 @@
 import React from 'react';
 
-const viewEditProfile = () => {
-    
-}
+const viewEditProfile = () => {};
 
 export default viewEditProfile;

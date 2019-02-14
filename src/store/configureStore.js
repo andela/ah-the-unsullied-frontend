@@ -5,9 +5,8 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import rootReducer from '../reducers';
 
 const initialState = {
-  profile: {
-  }
-}
+  profile: {}
+};
 
 let middlewares = [thunk];
 const devMiddleware = [logger, reduxImmutableStateInvariant()];

@@ -1,5 +1,5 @@
 const PostFix = {
-    profiles:{
-        view:'/profiles/view/:username',
-    }
-}
+  profiles: {
+    view: '/profiles/view/:username'
+  }
+};

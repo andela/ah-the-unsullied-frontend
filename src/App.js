@@ -1,18 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import Navbar from './components/common/nav/Nav';
-import PropTypes from 'prop-types';
 import './app.scss';
+import Navbar from './components/common/nav/Nav';
 import Login from './components/login/login';
 import Profile from './components/Profile/Profile';
-import 'materialize-css/dist/css/materialize.min.css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-
 
 class App extends Component {
-
- 
   render() {
     return (
       <div>
