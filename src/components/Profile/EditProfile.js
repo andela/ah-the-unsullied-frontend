@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Row, Modal, Input } from 'react-materialize';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import * as profileActions from '../../actions/profile/profile';
 import ImageUploaoder from '../../utils/ImageUploaoder';
 import '../../assets/styles/HomePage.scss';
 
 class ViewProfile extends Component {
   constructor(props) {
+    console.log('erastus said', props);
     super(props);
     this.state = {
       bio: '',
-      image: ''
+      image: props.image
     };
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.handleSubmit.bind(this);
   }
@@ -21,7 +22,6 @@ class ViewProfile extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { bio, image } = this.state;
-    console.log(this.state);
     const data = {
       bio,
       image
@@ -49,10 +49,14 @@ class ViewProfile extends Component {
     return (
       <div>
         <Modal
+          header="Profile Edit"
           className="editPage"
           fixedFooter
           trigger={
-            <button className="btn waves-effect edit">Edit profile</button>
+            <button className="btn waves-effect edit">
+              Edit profile
+              <i className="material-icons right">edit</i>
+            </button>
           }
         >
           <Row>
@@ -60,30 +64,38 @@ class ViewProfile extends Component {
               src={this.props.image}
               className="responsive-img circle editPageProfile"
               onClick={() => this.fileInput.click()}
-              height="150px"
-              width="150px"
+              height="100px"
+              width="100px"
               alt="Avatar"
             />
           </Row>
           <Row>
             <form onSubmit={this.handleSubmit}>
+              <label htmlFor="bio">Bio</label>
               <textarea
-                s={12}
-                label="Bio"
-                name="bio"
+                id="bio"
+                className="materialize-textarea"
                 onChange={this.onChange}
-                validate
                 defaultValue={this.props.bio}
               />
-              <Input
-                type="file"
-                ref={fileInput => {
-                  this.fileInput = fileInput;
-                }}
-                onChange={this.fileHandler}
-                defaults={12}
-              />
-              <Input type="submit" />
+              <Row>
+                <Input
+                  s={12}
+                  type="file"
+                  name="image"
+                  ref={fileInput => {
+                    this.fileInput = fileInput;
+                  }}
+                  label="Upload Image"
+                  onChange={this.fileHandler}
+                  defaults={12}
+                />
+              </Row>
+              <Row className="left-align">
+                <button className="btn waves-effect edit " type="submit">
+                  Update
+                </button>
+              </Row>
             </form>
           </Row>
         </Modal>

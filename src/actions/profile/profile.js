@@ -1,5 +1,6 @@
-import endpoint from '../../utils/axios';
+import { toast } from 'react-toastify';
 import { VIEW_PROFILE, EDIT_PROFILE } from '../profile/profileTypes';
+import endpoint from '../../utils/axios';
 
 export const getUserProfile = username => async dispatch => {
   await endpoint
@@ -16,12 +17,12 @@ export const getUserProfile = username => async dispatch => {
 export const EditUserProfile = (username, data) => async dispatch => {
   await endpoint
     .put(`/profiles/${username}`, data)
-    .then(response =>
+    .then(response => {
       dispatch({
         type: EDIT_PROFILE,
-
         payload: response.data.profile
-      })
-    )
+      });
+      toast.success('Updated Successfully');
+    })
     .catch(errors => {});
 };

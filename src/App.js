@@ -5,6 +5,7 @@ import './app.scss';
 import Navbar from './components/common/nav/Nav';
 import Login from './components/login/login';
 import Profile from './components/Profile/Profile';
+import { ToastContainer } from 'react-toastify';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+            <ToastContainer />
             <Switch>
               <Route path="/login" component={Login} exact />
               <Route path="/profile" component={Profile} exact />
