@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import ProfileView from "./views/viewProfileView";
-import * as profileActions from "../../actions/profile/profile";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Col, Preloader, Row } from "react-materialize";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Col, Preloader, Row } from 'react-materialize';
+import ProfileView from './views/viewProfileView';
+import * as profileActions from '../../actions/profile/profile';
 
 class Profile extends Component {
   state = {

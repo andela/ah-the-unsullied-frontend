@@ -12,10 +12,6 @@
   color: gray;
 }
 
-.bio1 {
-  color: black;
-}
-
 .username {
   color: black;
 }
@@ -25,20 +21,20 @@
 }
 
 .card-action a {
-  color: black !important;
+  color: #35a7ff !important;
+  text-transform: none !important;
 }
 
 .profile {
   background-color: #ffffff;
 }
 
-
 .editPage {
   width: 400px;
 }
 
 .editPageProfile {
-  margin-left: 70px;
+  margin-left: 100px !important;
 }
 
 .statistics li {
@@ -51,4 +47,12 @@
 }
 .username {
   font-size: 40px;
+}
+
+.details {
+  height: 200px;
+}
+
+.editComponent {
+  margin-top: 100px;
 }

@@ -1,27 +1,30 @@
-import React from "react";
-import MaterialIcon, { colorPalette } from "material-icons-react";
-import EditProfile from "../EditProfile";
+import React from 'react';
+import EditProfile from '../EditProfile';
 
 const profile = props => {
   const { profile } = props;
 
   const getImage = () => {
     if (!profile.image) {
+      profile.image = require('../../../assets/images/profile.png')
       return (
         <img
-          src={require("../../../assets/images/profile.png")}
-          className="responsive-img"
+
+          src={require('../../../assets/images/profile.png')}
+          className="responsive-img circle"
           height="200px"
           width="200px"
+          alt="Avatar"
         />
       );
     } else {
       return (
         <img
           src={profile.image}
-          className="responsive-img"
+          className="responsive-img circle"
           height="200px"
           width="200px"
+          alt="Avatar"
         />
       );
     }
@@ -41,7 +44,7 @@ const profile = props => {
                       { getImage() }
                   </div>
                 </div>
-                <div className="bio col s8">
+                <div className="col s8">
                   <div className="username">{profile.username}</div>
                   <ul className="statistics">
                     <li className="artStat">
@@ -63,7 +66,7 @@ const profile = props => {
                       </span>
                     </li>
                   </ul>
-                  <div className="bio1">Bio</div>
+                  <div>Bio</div>
                   <div className="bio">{profile.bio}</div>
                 </div>
                 <div className=" col s2">
@@ -72,11 +75,11 @@ const profile = props => {
               </div>
             </div>
             <div className="card-action">
-              <a href="#">articles</a>
-              <a href="#">highlights</a>
-              <a href="#">Followers</a>
-              <a href="#">Following</a>
-              <a href="#">Ratings</a>
+              <a href="/">Articles</a>
+              <a href="/">Highlights</a>
+              <a href="/">Followers</a>
+              <a href="/">Following</a>
+              <a href="/">Ratings</a>
             </div>
           </div>
         </div>
@@ -85,4 +88,5 @@ const profile = props => {
     </div>
   );
 };
+
 export default profile;
