@@ -4,12 +4,15 @@ import { bindActionCreators } from 'redux';
 import { Col, Preloader, Row } from 'react-materialize';
 import ProfileView from './views/viewProfileView';
 import * as profileActions from '../../actions/profile/profile';
+import {getCurrentUser} from '../../utils/currentUser';
 
 class Profile extends Component {
   state = {
     fetched: false
   };
   componentDidMount = () => {
+    const user =  getCurrentUser()
+    console.log(user.username)
     const { actions } = this.props;
     actions.getUserProfile("sammy").then(() => {
       this.setState({

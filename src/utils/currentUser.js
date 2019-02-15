@@ -1,8 +1,10 @@
 import jwt_decode from "jwt-decode";
-localStorage.getItem('user')
+
 
 export const getCurrentUser = () => {
 
-  const user = localStorage.getItem('user');
-  return user ? JSON.parse(user) : null;
+  const token = localStorage.getItem('jwtToken')
+  const user = jwt_decode(token);
+  return user
+  console.log(user)
 };

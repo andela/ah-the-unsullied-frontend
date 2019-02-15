@@ -114,8 +114,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-
-
 function mapStateToProps(state) {
   return {
     UserProfile: state.profile
