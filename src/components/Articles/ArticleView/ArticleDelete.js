@@ -20,7 +20,6 @@ class ArticleDelete extends Component {
       if (user === author.username) {
           return(
             <div className="container">
-            <p>Are you sure you want to delete</p>
              <p><button className="danger" onClick={this.deleteAction}>Delete</button></p>
             </div>
           );

@@ -1,40 +1,19 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import {  MemoryRouter } from 'react-router-dom';
 import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import App from '../../App';
 import SocialAuthClass, { mapDispatchToProps } from './SocialLogin';
-import Login from '../login';
+
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const middleware = [thunk];
 const fakeStore = configureStore(middleware);
 
-it('Social auth component renders correctly', () => {
-  const div = document.createElement('div');
-  ReactDom.render(
-    <Provider
-      store={fakeStore({
-        auth: {
-          isAuthenticated: false
-        }
-      })}
-    >
-      <BrowserRouter>
-        <App>
-          <SocialAuthClass />
-          <Login />
-        </App>
-      </BrowserRouter>
-    </Provider>,
-    div
-  );
-});
+
 
 describe('<SocialAuthClass /> snapshot', () => {
   it('Component should match the snapshot', () => {

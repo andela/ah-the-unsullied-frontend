@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {resetPassword} from '../../../actions/resetPasswordAction';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {resetPassword} from '../../../actions/resetPasswordAction';
+import { logoutUser } from '../../../actions/loginActions';
 
 class Resetpassword extends Component {
   state ={
@@ -23,26 +24,27 @@ class Resetpassword extends Component {
     this.inputPassconfirm.value=null;
   }
   render() {
-    const passwordErrorMessage = this.props.errors.errors
-      ? this.props.errors.errors.password
-      : '';
-    const confirmpasswordErrorMessage = this.props.errors.errors
-      ? this.props.errors.errors.confirm_password
-      : '';
-    const passwordmismatchMessage = this.props.errors.message
-      ? this.props.errors.message
-      : '';
-    const successmessage = this.props.message
-      ? this.props.message['message']
-      : '';
-    const success = this.props.success
-      ? this.props.success
-      : '';
-    if (success){
-      setTimeout(()=>{
-        this.props.history.push('/login')
-      },1000);
-    }
+        const passwordErrorMessage = this.props.errors.errors
+        ? this.props.errors.errors.password
+        : '';
+        const confirmpasswordErrorMessage = this.props.errors.errors
+        ? this.props.errors.errors.confirm_password
+        : '';
+        const passwordmismatchMessage = this.props.errors.message
+        ? this.props.errors.message
+        : '';
+        const successmessage = this.props.message
+        ? this.props.message['message']
+        : '';
+        const success = this.props.success
+        ? this.props.success
+        : '';
+        if (success){
+            setTimeout(()=>{
+            this.props.history.push('/login')
+            },1000);
+            this.props.logoutUser();
+        }
     return (
       <div>
         <div className='homediv'>
@@ -97,5 +99,5 @@ Resetpassword.propTypes = {
   history: PropTypes.func.isRequired,
   resetPassword: PropTypes.func.isRequired,
 
-};
-export default connect(mapStateToProps, {resetPassword})(Resetpassword)
+    };
+export default connect(mapStateToProps, {resetPassword, logoutUser})(Resetpassword)

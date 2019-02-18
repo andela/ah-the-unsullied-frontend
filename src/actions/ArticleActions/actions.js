@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { GET_ARTICLES, GET_SEARCHED_ARTICLES} from './types';
+import { GET_ARTICLES, GET_SEARCHED_ARTICLES, CREATE_ARTICLE} from './types';
 import { GET_ERRORS } from '../actionTypes';
 import axiosConfig from '../../axiosConfig';
 
@@ -41,11 +41,38 @@ export const getSearchedArticles = (searchtext, filterby) => {
         url: url
       })
       .then(response => {
-        dispatch({
-          type: GET_SEARCHED_ARTICLES,
-          payload: response.data
-        });
-      })
-    }
-  }
+        if (response.data.count === 0) {
+          toast.error('No article was found');
+        } else {
+          dispatch({
+            type: GET_SEARCHED_ARTICLES,
+            payload: response.data
+          });
+        }
+      });
+  };
+};
 
+  export const createArticle = article => {
+    return dispatch => {
+      return axiosConfig
+        .request({
+          method: 'post',
+          url: '/articles',
+          data: article
+        })
+        .then(response => {
+          dispatch({
+            type: CREATE_ARTICLE,
+            payload: response.data
+          });
+        })
+        .catch((err) => {
+          toast.error(err.response.data.errors.error[0]);
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          });
+        });
+    };
+  };
