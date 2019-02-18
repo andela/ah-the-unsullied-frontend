@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'react-materialize';
+import { withRouter } from 'react-router-dom';
+import M from 'materialize-css';
+
 import '../../../assets/css/nav.scss';
 import Logo from '../../../assets/images/Logo.png';
 import { logoutUser } from '../../../actions/loginActions';
-import { withRouter } from 'react-router-dom';
-import M from 'materialize-css';
+import SignUp from '../../auth/SignUp';
 
 class Nav extends Component {
   onLogoutClick(e) {
@@ -54,7 +55,7 @@ class Nav extends Component {
           </a>
         </li>
         <li>
-          <Button>SignUp</Button>
+          <SignUp />
         </li>
       </ul>
     );

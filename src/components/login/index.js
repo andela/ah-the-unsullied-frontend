@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-materialize';
+import { Input, Row } from 'react-materialize';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Loader from 'react-loader';
@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 
 import { loginUser } from '../../actions/loginActions';
 import '../../assets/css/login.scss';
+import SignUp from '../auth/SignUp';
 
 class Login extends Component {
   constructor(props) {
@@ -26,8 +27,6 @@ class Login extends Component {
       this.setState({ loaded: true });
       return;
     }
-
-
   }
   onSubmit = e => {
     e.preventDefault();
@@ -44,63 +43,49 @@ class Login extends Component {
   };
   render() {
     return (
-      <div className="modal-unique">
-        <Modal
-          id="foo"
-          style={{ display: 'none' }}
-          header="Login"
-          trigger={
-            <button className='waves-light btn' id='login' >
-              <i className='material-icons left'>email</i>
-              Login with email
+      <Row>
+        <form onSubmit={this.onSubmit}>
+          <Input
+            id="email"
+            type="email"
+            onChange={this.onChange}
+            label="Email"
+            s={12}
+            required
+          />
+          <Input
+            id="password"
+            type="password"
+            onChange={this.onChange}
+            label="password"
+            s={12}
+            required
+          />
+          <div className="data">
+            <button id="loginBtn" className="btn pink lighten-1 z-depth-0">
+              Login
             </button>
-          }
-        >
-
-          <form onSubmit={this.onSubmit}>
-            <div className="input-field">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                onChange={this.onChange}
-                required
-              />
-            </div>
-            <div className="input-field">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                onChange={this.onChange}
-                required
-              />
-            </div>
-            <div className="input-field">
-              <button id="loginBtn" className="btn pink lighten-1 z-depth-0">
-                Login
-              </button>
-            </div>
-          </form>
-          <a className="pass-reset" href="/password-reset">
-            <div className="loader">
-              <Loader loaded={this.state.loaded} />
-            </div>
-            Forgot Password?
-          </a>
-          <p>
-            Dont have an account? <a href="#!"> SignUp</a>
-          </p>
-        </Modal>
-      </div>
+            <a className="pass-reset" href="/password-reset">
+              <div className="loader">
+                <Loader loaded={this.state.loaded} />
+              </div>
+              Forgot Password?
+            </a>
+            <p>
+              Dont have an account? <a href="#!"> < SignUp/></a>
+            </p>
+          </div>
+        </form>
+      </Row>
     );
   }
 }
 
 Login.propTypes = {
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
   loginUser: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
