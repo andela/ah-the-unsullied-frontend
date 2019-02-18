@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {resetPassword} from '../../../actions/resetPasswordAction';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
 class Resetpassword extends Component {
     state ={
         password:'',
@@ -65,8 +66,8 @@ class Resetpassword extends Component {
                     <label htmlFor='error' style={{ color: 'red' }}>{confirmpasswordErrorMessage}</label>
                     <label htmlFor='mismatch' style={{ color: 'red' }}>{passwordmismatchMessage}</label>
                     <div id='loader-div' style = {{display:'none', 'margin':'auto'}} >
-                        <div class='progress'>
-                            <div class='indeterminate'></div>
+                        <div className='progress'>
+                            <div className='indeterminate' />
                         </div>
                     </div>
                     <br/><br/>

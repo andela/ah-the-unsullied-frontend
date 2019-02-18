@@ -9,7 +9,7 @@ export const resetPassword = (password,confirm_password, token) => dispatch => {
         data:{password:password, confirm_password:confirm_password}
     })
     .then(res=> {
-        document.getElementById("loader-div").style.display = "block";
+        document.getElementById('loader-div').style.display = 'block';
         dispatch({
             type: PASSWORD_RESET,
             payload: res.data
@@ -31,10 +31,10 @@ export const sendEmail=(user_email)=>dispatch => {
         data:{email:user_email}
     })
     .then(res=> {
-        document.getElementById("loader-div").style.display = "block";
+        document.getElementById('loader-div').style.display = 'block';
         dispatch({
             type: SEND_EMAIL,
-            payload: res.data["message"]
+            payload: res.data['message']
           }); 
     })
     .catch( err => {

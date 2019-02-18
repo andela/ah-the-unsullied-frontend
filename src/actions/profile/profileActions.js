@@ -1,7 +1,7 @@
 import axiosConfig from '../../axiosConfig';
 import setAuthToken from '../../utils/setAuthToken';
-import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from "./profileTypes";
-import { toast } from "react-toastify";
+import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from './profileTypes';
+import { toast } from 'react-toastify';
 
 
 const token = localStorage.getItem('jwtToken')

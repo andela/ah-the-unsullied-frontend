@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { GET_ARTICLES } from './types';
+import { GET_ARTICLES, GET_SEARCHED_ARTICLES } from './types';
 import { GET_ERRORS } from '../actionTypes';
 import axiosConfig from '../../axiosConfig';
 
@@ -23,5 +23,27 @@ export const getArticles = (page = 1) => {
           payload: err.response.data
         });
       });
+  };
+};
+
+export const getSearchedArticles = (searchtext, filterby) => {
+  let url = 'search?';
+  if (filterby !== null) {
+    url = url + filterby + '=' + searchtext;
+  } else {
+    url = url + 'search=' + searchtext;
+  }
+  return dispatch => {
+    return axiosConfig
+      .request({
+        method: 'get',
+        url: url
+      })
+      .then(response => {
+        dispatch({
+          type: GET_SEARCHED_ARTICLES,
+          payload: response.data
+        });
+      })
   };
 };

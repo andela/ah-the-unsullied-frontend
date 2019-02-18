@@ -25,6 +25,14 @@ class ArticleList extends Component {
   };
   articleCard() {
     var arr = _.values(this.props.articles['results']);
+    if (arr.length === 0) {
+      const articles = (
+        <div>
+          <p>Search not found</p>
+        </div>
+      );
+      return <div>{articles}</div>;
+    }
     const articles = arr.map(article => {
       const date = article.created_at.slice(0, 10);
 

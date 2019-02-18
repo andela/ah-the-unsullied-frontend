@@ -9,4 +9,10 @@ describe('article reducer', () => {
       initialState
     );
   });
+
+  it('it should return the initial state', () => {
+    expect(articleReducer(initialState, types.GET_SEARCHED_ARTICLES)).toEqual(
+      initialState
+    );
+  });
 });
