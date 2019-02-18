@@ -3,12 +3,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/socialAuth.css';
+import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Verification from './components/auth/Verification';
 import SocialAuthentication from './components/SocialAuth/SocialLogin';
 import Resetpasswordemail from './components/login/passwordreset/Resetpasswordemail';
 import Resetpassword from './components/login/passwordreset/Resetpassword';
-import 'materialize-css/dist/css/materialize.min.css';
+
 
 import Profile from './components/Profile/Profile';
 import { Home } from './components/home';

@@ -7,7 +7,7 @@ const initialState = {
     article:{}
 }
 
-describe("Article Reducer Test ", () => {
+describe('Article Reducer Test ', () => {
     it('should get a single article', () =>{
         const action = {
             type: GET_ARTICLE
@@ -17,7 +17,7 @@ describe("Article Reducer Test ", () => {
     });
 });
 
-describe("Article Delete Test ", () => {
+describe('Article Delete Test ', () => {
     it('should delete a single article', () =>{
         const action = {
             type: DELETE_ARTICLE

@@ -80,8 +80,8 @@ class SocialAuthActions extends Component {
         localStorage.setItem('loggedInUserName', username);
 
         let token = response.data.user['token'];
-        localStorage.setItem('token', token);
-        passedData.authenticate(response.data.user['username']);
+        localStorage.setItem('jwtToken', token);
+        passedData.authenticate(response.data.user);
         passedData.history.push('/');
 
       })
@@ -142,8 +142,8 @@ class SocialAuthActions extends Component {
           </div>
           <div className='col'>
             <div className='hide-md-lg'>
-            <p>Or sign in manually:</p>
-          </div>
+              <p>Or sign in manually:</p>
+            </div>
             <Login/>
           </div>
         </div>

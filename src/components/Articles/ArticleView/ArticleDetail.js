@@ -7,6 +7,7 @@ import * as articleActions from '../../../actions/articles/articleActions';
 import ArticleView from './views/ArticleView';
 import ArticleDelete from './ArticleDelete';
 import Nav from '../../common/nav'
+import SocialShare from '../../../components/SocialSharing/shareArticle'
 
 class ArticleDetail extends Component {
   state = {
@@ -40,6 +41,7 @@ class ArticleDetail extends Component {
         <Nav />
           <ArticleView {...this.props} />
           <ArticleDelete {...this.props} />
+          <SocialShare title={this.props.article.article.article.title} slug={this.props.match.url}/>
         </div>
       );
     }

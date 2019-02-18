@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader';
 import { connect } from 'react-redux';
-import { registerUser } from '../../actions/authActions';
 import { Button, Modal } from 'react-materialize';
+import { registerUser } from '../../actions/authActions';
 
 class SignUp extends Component {
   state = {
@@ -44,7 +44,6 @@ class SignUp extends Component {
 
   handleChange = e => {
     this.setState({
-      // errors: {},
       [e.target.id]: e.target.value
     });
   };
@@ -118,7 +117,6 @@ const mapStateToProps = state => {
     errors = state.signup.errors;
   }
   return {
-    errors: errors,
     signup: state.signup
   };
 };

@@ -24,16 +24,16 @@ const appReducer = (state, action) => {
     state = undefined;
   }
   return rootReducer(state, action);
- };
- 
- const persistedReducer = persistReducer(
+};
+
+const persistedReducer = persistReducer(
   {
     key: 'root',
     storage
   },
   appReducer
- );
- 
+);
+
 const store = createStore(
   persistedReducer,
   initialState,

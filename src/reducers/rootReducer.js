@@ -15,7 +15,7 @@ export default combineReducers({
   auth : loginReducer,
   errors: errorReducer,
   socialLogin,
-  passwordreset, 
+  passwordreset,
   profile,
   articles: articleReducer,
   articlereducer
