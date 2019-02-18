@@ -34,7 +34,7 @@
     "plugins": [
         "react",
         "prettier"
-
+ 
     ],
     "parser": "babel-eslint",
     "globals": {
@@ -42,7 +42,6 @@
         "it": true,
         "expect":true,
         "beforeEach":true,
-        "afterEach":true,
-        "jest": true
+        "afterEach":true
     }
 }

@@ -18,16 +18,10 @@ class Login extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      nextProps.history.push('/');
-    }
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
       this.setState({ loaded: true });
-      return;
     }
-
-
   }
   onSubmit = e => {
     e.preventDefault();
@@ -50,13 +44,11 @@ class Login extends Component {
           style={{ display: 'none' }}
           header="Login"
           trigger={
-            <button className='waves-light btn' id='login' >
-              <i className='material-icons left'>email</i>
-              Login with email
-            </button>
+            <a href="#!" className="btn white indigo-text">
+              Login
+            </a>
           }
         >
-
           <form onSubmit={this.onSubmit}>
             <div className="input-field">
               <label htmlFor="email">Email</label>
@@ -99,10 +91,7 @@ class Login extends Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

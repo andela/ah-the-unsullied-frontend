@@ -4,7 +4,7 @@ import { logger } from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
 
-import rootReducer from '../reducers/rootReducer';
+import rootReducer from '../reducers';
 
 let middlewares = [
   thunk
