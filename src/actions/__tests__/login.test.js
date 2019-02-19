@@ -39,3 +39,4 @@ describe('async api requests', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 });
+

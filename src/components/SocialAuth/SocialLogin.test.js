@@ -7,35 +7,39 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import App from '../../App';
-import SocialAuthClass , {mapDispatchToProps} from './SocialLogin';
+import { mapDispatchToProps } from './SocialLogin';
+import SocialAuthClass from './SocialLogin';
+import Login from '../login';
 
 Enzyme.configure({ adapter: new Adapter() });
-
 
 const middleware = [thunk];
 const fakeStore = configureStore(middleware);
 
-
 it('Social auth component renders correctly', () => {
   const div = document.createElement('div');
   ReactDom.render(
-    <Provider store={fakeStore({
-      auth: {
-        isAuthenticated:false,
-      }
-    })}>
-    <BrowserRouter>
-      <App>
-        <SocialAuthClass />
-      </App>
-    </BrowserRouter>
-  </Provider>, div
+    <Provider
+      store={fakeStore({
+        auth: {
+          isAuthenticated: false
+        }
+      })}
+    >
+      <BrowserRouter>
+        <App>
+          <SocialAuthClass />
+          <Login />
+        </App>
+      </BrowserRouter>
+    </Provider>,
+    div
   );
 });
 
 describe('<SocialAuthClass /> snapshot', () => {
   it('Component should match the snapshot', () => {
-    const socialComponent = shallow(<SocialAuthClass debug/>);
+    const socialComponent = shallow(<SocialAuthClass debug />);
     expect(socialComponent).toMatchSnapshot();
   });
 });
@@ -56,15 +60,15 @@ describe('social auth card', () => {
   });
 });
 
-describe('Testing all the props', () =>{
+describe('Testing all the props', () => {
   const dispatch = jest.fn();
   const authData = {
-    'username': 'Allan Mogusu',
-    'email': 'allan@gmail.com',
-    'token': '121aAB12njnejcbbAabcAbcYTF2'
+    username: 'Allan Mogusu',
+    email: 'allan@gmail.com',
+    token: '121aAB12njnejcbbAabcAbcYTF2'
   };
 
-  it('returns facebook data correctly', () =>{
+  it('returns facebook data correctly', () => {
     mapDispatchToProps(dispatch).FacebookAuth(authData);
     expect(dispatch.mock.calls[0][0]).toEqual(authData);
   });
@@ -74,23 +78,18 @@ describe('Testing all the props', () =>{
     expect(dispatch.mock.calls[0][0]).toEqual(authData);
   });
 
-  it('returns twitter data correctly', () =>{
+  it('returns twitter data correctly', () => {
     mapDispatchToProps(dispatch).TwitterAuth(authData);
     expect(dispatch.mock.calls[0][0]).toEqual(authData);
   });
 
-
-  it('Should return all user data fetched from api', () =>{
-   const expectedData = {
-     'email': 'allan@gmail.com',
-     'token': '121aAB12njnejcbbAabcAbcYTF2',
-     'username': 'Allan Mogusu'
-   };
+  it('Should return all user data fetched from api', () => {
+    const expectedData = {
+      email: 'allan@gmail.com',
+      token: '121aAB12njnejcbbAabcAbcYTF2',
+      username: 'Allan Mogusu'
+    };
     mapDispatchToProps(dispatch).receivedUsers(authData);
     expect(dispatch.mock.calls[0][0]).toEqual(expectedData);
-
   });
-
 });
-
-
