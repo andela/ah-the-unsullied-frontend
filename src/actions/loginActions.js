@@ -32,7 +32,7 @@ export const loginUser = userData => dispatch => {
       });
     })
     .catch(err => {
-      toast.error(err.response.data.errors.error[0]);
+      toast.error(err.response.data.errors.error[0], { autoClose: false });
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data

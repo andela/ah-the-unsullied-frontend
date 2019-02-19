@@ -21,9 +21,9 @@
     "jest": "^24.1.0",
     "jwt-decode": "^2.2.0",
     "materialize": "^1.0.0",
-    "materialize-css": "^1.0.0-rc.2",
     "materialize-social": "^1.0.3",
     "moxios": "^0.4.0",
+    "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
     "prop-types": "^15.7.1",
@@ -47,7 +47,7 @@
     "start": "react-scripts start",
     "lint": "eslint . --ext .js,.jsx",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -67,6 +67,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "moxios": "^0.4.0",
     "redux-mock-store": "^1.5.3"
   }
 }

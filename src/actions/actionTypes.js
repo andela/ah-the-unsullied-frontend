@@ -4,4 +4,8 @@ export const SIGNUP_USER = 'SIGNUP_USER';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const VERIFY_USER = 'VERIFY_USER';
 export const VERIFY_ERROR = 'VERIFY_ERROR';
-
+export const UPDATE_COUNT = 'UPDATE_COUNT';
+export const PASSWORD_RESET= 'PASSWORD_RESET';
+export const PASSWORD_RESET_ERROR= 'PASSWORD_RESET_ERROR';
+export const SEND_EMAIL_ERROR= 'SEND_EMAIL_ERROR';
+export const SEND_EMAIL= 'SEND_EMAIL';

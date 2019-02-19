@@ -1,7 +1,10 @@
-import React from 'react';
+import React from 'react'; 
+
 
 export const Home = () => {
-  return (
-    <div />
-  );
-};
+        return(
+         <div>
+             <p>home page</p>
+         </div>
+        );
+    };
