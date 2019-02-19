@@ -12,6 +12,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 import Profile from './components/Profile/Profile';
 import { Home } from './components/home';
+import Article from './components/Articles/ArticleView/ArticleDetail';
 
 const App = () => (
   <div>
@@ -37,6 +38,7 @@ const App = () => (
               path="/api/activate/account/:pk/:token"
               component={Verification}
             />
+            <Route path='/article/:slug' exact component={Article}/>
           </Switch>
         </div>
       </div>

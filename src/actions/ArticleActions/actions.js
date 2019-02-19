@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { GET_ARTICLES, GET_SEARCHED_ARTICLES } from './types';
+import { GET_ARTICLES, GET_SEARCHED_ARTICLES} from './types';
 import { GET_ERRORS } from '../actionTypes';
 import axiosConfig from '../../axiosConfig';
 
@@ -26,6 +26,7 @@ export const getArticles = (page = 1) => {
   };
 };
 
+
 export const getSearchedArticles = (searchtext, filterby) => {
   let url = 'search?';
   if (filterby !== null) {
@@ -45,5 +46,6 @@ export const getSearchedArticles = (searchtext, filterby) => {
           payload: response.data
         });
       })
-  };
-};
+    }
+  }
+

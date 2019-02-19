@@ -22,7 +22,7 @@ class Nav extends Component {
   onLogoutClick(e) {
     e.preventDefault();
     this.props.logoutUser();
-    this.props.history.push('/');
+    this.props.history.go('/');
   }
   onEnterkeypress = e => {
     if (e.key === 'Enter' && this.state.search !== null) {
