@@ -1,6 +1,7 @@
+import { toast } from 'react-toastify';
 import { SIGNUP_USER, SIGNUP_ERROR } from './actionTypes';
 import axiosConfig from '../axiosConfig';
-import { toast } from 'react-toastify';
+
 
 export const registerUser = newUserData => dispatch => {
   const userData = {

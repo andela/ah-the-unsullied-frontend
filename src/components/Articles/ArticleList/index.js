@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import _ from 'lodash';
 import Pagination from 'react-js-pagination';
 
@@ -35,6 +35,7 @@ class ArticleList extends Component {
     }
     const articles = arr.map(article => {
       const date = article.created_at.slice(0, 10);
+      const slug = article.slug;
 
       return (
         <div className="row">
@@ -56,9 +57,18 @@ class ArticleList extends Component {
                 {date} | {article.read_time}
               </span>
               <div className="card-action">
-                <a className="teal-text" href="#!">
+              
+            
+                <Link
+                  to={{
+                    pathname: `/article/${slug}`,
+                    slug: { slug },
+                    single: { ...article }
+                  }}
+                >
                   View
-                </a>
+                </Link>
+        
               </div>
             </div>
           </div>

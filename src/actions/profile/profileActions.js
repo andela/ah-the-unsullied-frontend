@@ -1,4 +1,4 @@
-import axiosConfig from '../../axiosConfig';
+import axiosConfig from '../../utils/axios';
 import setAuthToken from '../../utils/setAuthToken';
 import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from './profileTypes';
 import { toast } from 'react-toastify';
@@ -13,8 +13,7 @@ export const getUserProfile = username => async dispatch => {
     method: 'get',
     url: `profiles/${username}`, 
     headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${token}`
+      'content-type': 'application/json'
     }
   })
     .then(response =>
@@ -35,8 +34,7 @@ export const EditUserProfile = (username, data) => async dispatch => {
     url: `profiles/${username}`, 
     data: data, 
     headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${token}`
+      'content-type': 'application/json'
     }
   })
     .then(response => {
