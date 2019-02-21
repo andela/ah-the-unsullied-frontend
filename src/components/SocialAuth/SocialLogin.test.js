@@ -7,8 +7,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import App from '../../App';
-import { mapDispatchToProps } from './SocialLogin';
-import SocialAuthClass from './SocialLogin';
+import SocialAuthClass, { mapDispatchToProps } from './SocialLogin';
 import Login from '../login';
 
 Enzyme.configure({ adapter: new Adapter() });

@@ -6,6 +6,8 @@ import socialLogin from './SocialLoginReducer/SocialAuthReducer';
 import signUpReducer from './signUpReducer';
 import verificationReducer from './verificationReducer';
 import passwordreset from './passwordResetReducer';
+import articleReducer from './ArticleReducers/articleReducer';
+
 
 export default combineReducers({
   signup: signUpReducer,
@@ -14,5 +16,6 @@ export default combineReducers({
   errors: errorReducer,
   socialLogin,
   passwordreset, 
-  profile
+  profile,
+  articles: articleReducer
 });

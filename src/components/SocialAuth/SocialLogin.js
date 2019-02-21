@@ -7,7 +7,6 @@ import { auth, GoogleProvider, FacebookProvider, TwitterProvider } from './fireb
 import Login from '../../components/login';
 import { FACEBOOK, GOOGLE, TWITTER } from '../../actions/SocialAuth/SocialAuthTypes';
 import * as LoginActions from '../../actions/loginActions'
-import SignUp from '../auth/SignUp'
 
 class SocialAuthActions extends Component {
   constructor(props) {
@@ -146,8 +145,6 @@ class SocialAuthActions extends Component {
             <p>Or sign in manually:</p>
           </div>
             <Login/>
-            <br/>
-            <SignUp/>
           </div>
         </div>
       </div>
