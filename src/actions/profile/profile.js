@@ -1,6 +1,6 @@
-import endpoint from "../../utils/axios";
-import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from "../profile/profileTypes";
-import { toast } from "react-toastify";
+import endpoint from '../../utils/axios';
+import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from '../profile/profileTypes';
+import { toast } from 'react-toastify';
 
 export const getUserProfile = username => async dispatch => {
   await endpoint
