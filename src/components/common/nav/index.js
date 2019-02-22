@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import M from 'materialize-css';
 
@@ -28,6 +28,7 @@ class Nav extends Component {
     if (e.key === 'Enter' && this.state.search !== null) {
       const searchtext = this.state.search;
       const filterby = this.state.value;
+      this.props.history.push('/')
       this.props.getSearchedArticles(searchtext, filterby);
     }
   };
@@ -38,7 +39,7 @@ class Nav extends Component {
   };
   render() {
     const img = require('../../../assets/images/profile.png');
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, user } = this.props.auth;
     const common = (
       <ul className="right hide-on-med-and-down">
         <li>
@@ -88,13 +89,15 @@ class Nav extends Component {
     const authLinks = (
       <ul className="right hide-on-med-and-down prof">
         <a className="dropdown-trigger btn" href="/" data-target="dropdown1">
-          Actions <i className="material-icons left prof">arrow_drop_down</i>
+          {  user.username } <i className="material-icons left prof">arrow_drop_down</i>
         </a>
         <li>{common}</li>
         <ul id="dropdown1" className="dropdown-content">
         
           <li>
-            <a href="#!">Create Article</a>
+            <NavLink to='/create-article'>
+              Create Article
+            </NavLink>
           </li>
           <li>
             <a href="/profile">profile</a>
@@ -129,11 +132,13 @@ class Nav extends Component {
           <nav className="nav-wrapper">
             <div className="container">
               <div>
-                <img
-                  src={Logo}
-                  className="img-responsive"
-                  alt="++ah-unsullied"
-                />
+                <NavLink to='/'>
+                  <img
+                    src={Logo}
+                    className="img-responsive"
+                    alt="++ah-unsullied"
+                  />
+                </NavLink>
               </div>
               <div className="v1" />
               <div id="emboss">{'Author\'s Haven'}</div>

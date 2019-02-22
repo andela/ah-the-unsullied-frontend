@@ -128,26 +128,28 @@ class SocialAuthActions extends Component {
   render() {
     return (
 
-      <div className='social-container'>
-        <h4 id='h4'>{'Welcome to Author\'s Haven'}</h4>
-        <div className='row'>
-          <div className='vl'>
-            <span className='vlinnertext'>or</span>
-          </div>
-          <div className='col'>
-            { this.renderButton(FacebookProvider, 'facebook', FACEBOOK, 'Facebook', 'fa fa-facebook fa-fw', 'btn social facebook')}
-            <br/>
-            { this.renderButton(GoogleProvider, 'google-oauth2', GOOGLE, 'Google', 'fa fa-google fa-fw', 'btn social google') }
-            { this.renderButton(TwitterProvider, 'twitter', TWITTER, 'Twitter', 'fa fa-twitter fa-fw', 'btn social twitter') }
-          </div>
-          <div className='col'>
-            <div className='hide-md-lg'>
-              <p>Or sign in manually:</p>
+              
+        <div className='social-container'>
+          <h4 id='h4'>{'Welcome to Author\'s Haven'}</h4>
+          <div className='row'>
+            <div className='vl'>
+              <span className='vlinnertext'>or</span>
             </div>
-            <Login/>
+            <div className='col'>
+              { this.renderButton(FacebookProvider, 'facebook', FACEBOOK, 'Facebook', 'fa fa-facebook fa-fw', 'btn social facebook')}
+              <br/>
+              { this.renderButton(GoogleProvider, 'google-oauth2', GOOGLE, 'Google', 'fa fa-google fa-fw', 'btn social google') }
+              { this.renderButton(TwitterProvider, 'twitter', TWITTER, 'Twitter', 'fa fa-twitter fa-fw', 'btn social twitter') }
+            </div>
+            <div className='col'>
+              <div className='hide-md-lg'>
+                <p>Or sign in manually:</p>
+              </div>
+              <Login/>
+            </div>
           </div>
         </div>
-      </div>
+
     );
   };
 }

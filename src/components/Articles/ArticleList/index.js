@@ -16,7 +16,10 @@ class ArticleList extends Component {
     };
   }
   componentDidMount() {
+    let arr = _.values(this.props.articles['results']);
+    if(arr.length === 0){
     this.props.getArticles();
+    }
   }
 
   handlePageChange = pageNumber => {
@@ -24,18 +27,10 @@ class ArticleList extends Component {
     this.setState({ activePage: pageNumber });
   };
   articleCard() {
-    var arr = _.values(this.props.articles['results']);
-    if (arr.length === 0) {
-      const articles = (
-        <div>
-          <p>Search not found</p>
-        </div>
-      );
-      return <div>{articles}</div>;
-    }
+    const arr = _.values(this.props.articles['results']);
     const articles = arr.map(article => {
-      const date = article.created_at.slice(0, 10);
-      const slug = article.slug;
+    const date = article.created_at.slice(0, 10);
+    const slug = article.slug;
 
       return (
         <div className="row">
