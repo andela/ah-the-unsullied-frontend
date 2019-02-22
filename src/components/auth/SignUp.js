@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader';
 import { connect } from 'react-redux';
-import { Button, Modal } from 'react-materialize';
 import { registerUser } from '../../actions/authActions';
+import { Button, Modal } from 'react-materialize';
 
 class SignUp extends Component {
   state = {
@@ -44,6 +44,7 @@ class SignUp extends Component {
 
   handleChange = e => {
     this.setState({
+      // errors: {},
       [e.target.id]: e.target.value
     });
   };
@@ -110,26 +111,22 @@ class SignUp extends Component {
     );
   }
 }
-
 const mapStateToProps = state => {
   let errors;
   if (state.signup) {
     errors = state.signup.errors;
   }
   return {
+    errors: errors,
     signup: state.signup
   };
 };
-
 SignUp.propTypes = {
   registerUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
-
 SignUp.defaultProps = { errors: {} };
-
 export default connect(
   mapStateToProps,
   { registerUser }
 )(SignUp);
-

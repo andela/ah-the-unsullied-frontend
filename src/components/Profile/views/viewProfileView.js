@@ -7,8 +7,8 @@ const profile = props => {
 
   const getImage = () => {
     if (!profile.image) {
-      const new_image = require('../../../assets/images/profile.png');
-      return new_image;
+      return profile.image= require('../../../assets/images/profile.png');
+  
     } else {
       return profile.image;
     }

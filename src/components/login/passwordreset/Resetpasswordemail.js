@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../../app.scss';
 import {sendEmail} from '../../../actions/resetPasswordAction';
+import { logoutUser } from '../../../actions/loginActions';
 
 class Resetemail extends Component {
 
@@ -40,6 +41,7 @@ class Resetemail extends Component {
         setTimeout(()=>{
         this.props.history.push('/login')
         },1000);
+        this.props.logoutUser();
     }
     return (
         <div>
@@ -89,4 +91,5 @@ Resetemail.propTypes = {
     history: PropTypes.func.isRequired,
 
     };
-export default connect(mapStateToProps, {sendEmail})(Resetemail);
+export default connect(mapStateToProps, {sendEmail, logoutUser})(Resetemail);
+

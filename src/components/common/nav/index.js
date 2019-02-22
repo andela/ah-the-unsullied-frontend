@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import M from 'materialize-css';
 
 import '../../../assets/css/nav.scss';
 import Logo from '../../../assets/images/Logo.png';
 import { logoutUser } from '../../../actions/loginActions';
-import { getSearchedArticles } from '../../../actions/ArticleActions/actions';
+import { getSearchedArticles, getArticles } from '../../../actions/ArticleActions/actions';
 import SignUp from '../../auth/SignUp';
 
 class Nav extends Component {
@@ -28,6 +28,7 @@ class Nav extends Component {
     if (e.key === 'Enter' && this.state.search !== null) {
       const searchtext = this.state.search;
       const filterby = this.state.value;
+      this.props.history.push('/')
       this.props.getSearchedArticles(searchtext, filterby);
     }
   };
@@ -36,9 +37,13 @@ class Nav extends Component {
       [e.target.id]: e.target.value
     });
   };
+  logoclick = e => {
+    this.props.getArticles();
+
+  };
   render() {
     const img = require('../../../assets/images/profile.png');
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, user } = this.props.auth;
     const common = (
       <ul className="right hide-on-med-and-down">
         <li>
@@ -88,13 +93,15 @@ class Nav extends Component {
     const authLinks = (
       <ul className="right hide-on-med-and-down prof">
         <a className="dropdown-trigger btn" href="/" data-target="dropdown1">
-          Actions <i className="material-icons left prof">arrow_drop_down</i>
+          {  user.username } <i className="material-icons left prof">arrow_drop_down</i>
         </a>
         <li>{common}</li>
         <ul id="dropdown1" className="dropdown-content">
         
           <li>
-            <a href="#!">Create Article</a>
+            <NavLink to='/create-article'>
+              Create Article
+            </NavLink>
           </li>
           <li>
             <a href="/profile">profile</a>
@@ -129,11 +136,14 @@ class Nav extends Component {
           <nav className="nav-wrapper">
             <div className="container">
               <div>
-                <img
-                  src={Logo}
-                  className="img-responsive"
-                  alt="++ah-unsullied"
-                />
+                <NavLink to='/'>
+                  <img
+                    src={Logo}
+                    className="img-responsive"
+                    alt="++ah-unsullied"
+                    onClick={this.logoclick}
+                  />
+                </NavLink>
               </div>
               <div className="v1" />
               <div id="emboss">{'Author\'s Haven'}</div>
@@ -162,6 +172,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { logoutUser, getSearchedArticles }
+    { logoutUser, getSearchedArticles, getArticles }
   )(Nav)
 );

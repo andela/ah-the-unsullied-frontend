@@ -11,7 +11,10 @@ class Profile extends Component {
   };
 
   componentDidMount = () => {
-    const { actions } = this.props;
+    const { actions, auth } = this.props;
+    if (!auth.isAuthenticated) {
+      this.props.history.push('/login')
+    }
     const username = this.props.auth.user.username;
 
     actions.getUserProfile(username).then(() => {
@@ -20,6 +23,12 @@ class Profile extends Component {
       });
     });
   };
+  componentWillReceiveProps(nextProps){
+    const { auth } = nextProps;
+    if (!auth.isAuthenticated) {
+      this.props.history.push('/login')
+    }
+  }
 
   render() {
     if (!this.state.fetched) {
