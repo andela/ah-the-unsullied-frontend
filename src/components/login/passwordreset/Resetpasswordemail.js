@@ -40,7 +40,7 @@ class Resetemail extends Component {
     if (success){
         setTimeout(()=>{
         this.props.history.push('/login')
-        },1000);
+        },3000);
         this.props.logoutUser();
     }
     return (
