@@ -4,7 +4,6 @@ import Nav from '../../common/nav';
 
 const profile = props => {
   const { profile } = props;
-  console.log(profile);
 
   const getImage = () => {
     if (!profile.image) {

@@ -1,6 +1,5 @@
-import { VERIFY_USER, VERIFY_ERROR } from './actionTypes';
-// import axios from 'axios';
 import { toast } from 'react-toastify';
+import { VERIFY_USER, VERIFY_ERROR } from './actionTypes';
 import axiosConfig from '../axiosConfig';
 
 export const verifyUser = payload => dispatch => {
@@ -11,7 +10,6 @@ export const verifyUser = payload => dispatch => {
       url: url
     })
     .then(response => {
-      console.log(response);
       dispatch({
         type: VERIFY_USER,
         payload: { data: response.data }
@@ -19,7 +17,6 @@ export const verifyUser = payload => dispatch => {
       toast.success('Email verification successful.');
     })
     .catch(err => {
-      console.log(err.response);
       dispatch({
         type: VERIFY_ERROR,
         payload: { data: err.response.data }

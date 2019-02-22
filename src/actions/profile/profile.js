@@ -27,12 +27,12 @@ export const EditUserProfile = (username, data) => async dispatch => {
       toast.success('Updated Successfully');
     })
     .catch(error =>{
-    
+
       dispatch({
         type: GET_ERRORS,
         payload: error.response.data
 
-      }); 
+      });
       toast.error(Object.values(error.response.data.profile)[0])
     });
 };

@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import '../../../app.scss';
 import {sendEmail} from '../../../actions/resetPasswordAction';
-import {connect} from 'react-redux';
 
 class Resetemail extends Component {
-    
+
     state ={
         email:'',
         reply:null,
         invalidemail:null
-    }
+    };
     handleChange = (e)=>{
         this.setState({
             email: e.target.value
         })
-    }
+    };
     handleSubmit = (e)=>{
         e.preventDefault();
         this.setState({
                     reply:null,
-                })  
-        const user_email= this.state.email
-        this.props.sendEmail(user_email)
+                });
+        const user_email= this.state.email;
+        this.props.sendEmail(user_email);
         this.inputEmail.value=null
-    }
+    };
   render() {
     const emailsendsuccess = this.props.sendemail
         ? this.props.sendemail
@@ -42,7 +42,7 @@ class Resetemail extends Component {
         },1000);
     }
     return (
-        <div> 
+        <div>
         <div className='homediv'>
         <h2>Password reset</h2>
        <form className='emailform' onSubmit={this.handleSubmit}>
@@ -50,7 +50,7 @@ class Resetemail extends Component {
 
             <input className='input' type='email' ref={el => this.inputEmail = el}
             onChange={this.handleChange} placeholder='Your email..' require/>
-            
+
                     <div id='loader-div' style = {{display:'none', 'margin':'auto'}} className='preloader-wrapper small active'>
                         <div className='spinner-layer spinner-green-only'>
                         <div className='circle-clipper left'>
@@ -69,7 +69,7 @@ class Resetemail extends Component {
             <br/>
             <input type='submit' value='Submit'/>
         </form>
-        
+
       </div></div>
     )
   }
