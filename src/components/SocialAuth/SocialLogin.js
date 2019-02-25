@@ -7,6 +7,7 @@ import { auth, GoogleProvider, FacebookProvider, TwitterProvider } from './fireb
 import Login from '../../components/login';
 import { FACEBOOK, GOOGLE, TWITTER } from '../../actions/SocialAuth/SocialAuthTypes';
 import * as LoginActions from '../../actions/loginActions'
+import setAuthToken from '../../utils/setAuthToken';
 
 class SocialAuthActions extends Component {
   constructor(props) {
@@ -81,6 +82,7 @@ class SocialAuthActions extends Component {
 
         let token = response.data.user['token'];
         localStorage.setItem('jwtToken', token);
+        setAuthToken(token);
         passedData.authenticate(response.data.user);
         passedData.history.push('/');
 
@@ -128,7 +130,7 @@ class SocialAuthActions extends Component {
   render() {
     return (
 
-              
+
         <div className='social-container'>
           <h4 id='h4'>{'Welcome to Author\'s Haven'}</h4>
           <div className='row'>
