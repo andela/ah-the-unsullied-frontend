@@ -5,12 +5,13 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/socialAuth.css';
+import './assets/css/404.css';
 import Verification from './components/auth/Verification';
 import SocialAuthentication from './components/SocialAuth/SocialLogin';
 import Resetpasswordemail from './components/login/passwordreset/Resetpasswordemail';
 import Resetpassword from './components/login/passwordreset/Resetpassword';
 import MyEditor from './components/Articles/CreateArticle';
-
+import Error404Page from './components/common/404errorPage'
 import Profile from './components/Profile/Profile';
 import { Home } from './components/home';
 import Article from './components/Articles/ArticleView/ArticleDetail';
@@ -41,6 +42,7 @@ const App = () => (
               component={Verification}
             />
             <Route path="/article/:slug" exact component={Article} />
+            <Route component={Error404Page}/>
           </Switch>
         </div>
       </div>
