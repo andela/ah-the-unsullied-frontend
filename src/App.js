@@ -14,6 +14,7 @@ import MyEditor from './components/Articles/CreateArticle';
 import Profile from './components/Profile/Profile';
 import { Home } from './components/home';
 import Article from './components/Articles/ArticleView/ArticleDetail';
+import EditArticle from './components/Articles/EditArticle';
 
 const App = () => (
   <div>
@@ -24,6 +25,7 @@ const App = () => (
           <Switch>
             <Route path="/" component={Home} exact Strict />
             <Route path="/create-article" component={MyEditor} exact Strict />
+            <Route path="/edit-article" component={EditArticle} exact Strict />
             <Route path="/profile" component={Profile} exact />
             <Route
               path="/login"

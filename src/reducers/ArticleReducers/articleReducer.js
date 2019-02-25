@@ -1,7 +1,8 @@
 import {
   GET_ARTICLES,
   GET_SEARCHED_ARTICLES,
-  CREATE_ARTICLE
+  CREATE_ARTICLE,
+  EDIT_ARTICLE
 } from '../../actions/ArticleActions/types';
 
 export default function(
@@ -22,6 +23,10 @@ export default function(
     case GET_SEARCHED_ARTICLES:
       return {
         articles: action.payload
+      };
+    case EDIT_ARTICLE:
+      return {
+        updatedArticle: action.payload
       };
     default:
       return state;

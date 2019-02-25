@@ -1,5 +1,10 @@
 import { toast } from 'react-toastify';
-import { GET_ARTICLES, GET_SEARCHED_ARTICLES, CREATE_ARTICLE} from './types';
+import {
+  GET_ARTICLES,
+  GET_SEARCHED_ARTICLES,
+  CREATE_ARTICLE,
+  EDIT_ARTICLE
+} from './types';
 import { GET_ERRORS } from '../actionTypes';
 import axiosConfig from '../../axiosConfig';
 
@@ -25,7 +30,6 @@ export const getArticles = (page = 1) => {
       });
   };
 };
-
 
 export const getSearchedArticles = (searchtext, filterby) => {
   let url = 'search?';
@@ -53,26 +57,43 @@ export const getSearchedArticles = (searchtext, filterby) => {
   };
 };
 
-  export const createArticle = article => {
-    return dispatch => {
-      return axiosConfig
-        .request({
-          method: 'post',
-          url: '/articles',
-          data: article
-        })
-        .then(response => {
-          dispatch({
-            type: CREATE_ARTICLE,
-            payload: response.data
-          });
-        })
-        .catch((err) => {
-          toast.error(err.response.data.errors.error[0]);
-          dispatch({
-            type: GET_ERRORS,
-            payload: err.response.data
-          });
+export const createArticle = article => {
+  return dispatch => {
+    return axiosConfig
+      .request({
+        method: 'post',
+        url: '/articles',
+        data: article
+      })
+      .then(response => {
+        dispatch({
+          type: CREATE_ARTICLE,
+          payload: response.data
         });
-    };
+      })
+      .catch(err => {
+        toast.error(err.response.data.errors.error[0]);
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        });
+      });
   };
+};
+
+export const editArticle = (slug, article) => {
+  return dispatch => {
+    return axiosConfig
+      .request({
+        method: 'put',
+        url: `/articles/${slug}`,
+        data: article
+      })
+      .then(res => {
+        dispatch({
+          type: EDIT_ARTICLE,
+          payload: res.data
+        });
+      });
+  };
+};
