@@ -50,7 +50,7 @@ class Nav extends Component {
             <div className="col s12 ">
               <div className="row" id="topbarsearch">
                 <div className="input-field col s6 s12 red-text">
-                <i className="red-text material-icons prefix">search</i>
+                <i className="tiny material-icons prefix" id="search-bot">search</i>
                   <input
                     type="text"
                     placeholder="search"

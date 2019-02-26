@@ -10,13 +10,7 @@
   float: left;
   font-size: 25px;
 }
-.img-responsive {
 
-    padding-top: 5px;
-    max-height: 55px;
-    float: left;
-    margin-right: .4em;
-}
 .v1 {
     margin: 16px 8px;
     height: 30px;
@@ -29,13 +23,7 @@
 	margin-right: .4em;
   background: #ffff !important;
 }
-#emboss {
-  margin-left: 1em;
-  color: #000 !important;
-  font-family: sans-serif;
-  float: left;
-  font-size: 25px;
-}
+
 .img-responsive {
   padding-top: 5px !important;
   max-height: 55px !important;
@@ -43,10 +31,23 @@
   margin-right: 0.4em !important;
 
 }
-.v1 {
-  margin: 16px 8px;
-  height: 30px;
-  border-left: 1px solid black;
-  float: left;
 
+#search-bot {
+  margin-left: 35px;
+  color: grey;
 }
+
+#search{
+  width: 60%;
+  margin-right: -28px;
+  margin-bottom: -20px;
+  height: 35px;
+  padding-bottom: -25px;
+  
+}
+
+#value{
+  margin-top: 8px;
+  height: 38px;
+}
+

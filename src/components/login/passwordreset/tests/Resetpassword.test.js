@@ -29,23 +29,52 @@ describe('component', () => {
 
 });
 const initialState = {};
+const password = {
+  password: '12345678A!23'
+};
+const wrongpassword = {
+  password: '1234'
+};
+const email = {
+  email: 'unsullieddevs@gmail.com'
+};
+const wrongemail = {
+  email: 'unsullieddevsgmailcom'
+};
 
 describe('password reducer', () => {
-  it('it should return the initial state', () => {
-    expect(passwordResetReducer(initialState, types.PASSWORD_RESET)).toEqual(
-      initialState
-    );
+  it('should change state of success to true when passed with PASSWORD_RESET', () => {
+    const action = {
+      type: types.PASSWORD_RESET,
+      payload: password
+    };
+    const newState = passwordResetReducer(initialState, action);
+    expect(newState.success).toEqual(true);
+  });
+  it('should change state of success to true when passed with SEND_EMAIL', () => {
+    const action = {
+      type: types.SEND_EMAIL,
+      payload: email
+    };
+    const newState = passwordResetReducer(initialState, action);
+    expect(newState.success).toEqual(true);
+  });
+  it('should change state of success to false when passed with PASSWORD_RESET_ERROR', () => {
+    const action = {
+      type: types.PASSWORD_RESET_ERROR,
+      payload: wrongpassword
+    };
+    const newState = passwordResetReducer(initialState, action);
+    expect(newState.success).toEqual(false);
   });
 
-  it('it should return the initial state', () => {
-    expect(passwordResetReducer(initialState, types.PASSWORD_RESET_ERROR)).toEqual(
-      initialState
-    );
-  });
-  it('it should return the initial state', () => {
-    expect(passwordResetReducer(initialState, types.SEND_EMAIL_ERROR)).toEqual(
-      initialState
-    );
+  it('should change state of success to false when passed with SEND_EMAIL_ERROR', () => {
+    const action = {
+      type: types.SEND_EMAIL_ERROR,
+      payload: wrongemail
+    };
+    const newState = passwordResetReducer(initialState, action);
+    expect(newState.success).toEqual(false);
   });
 
 });
