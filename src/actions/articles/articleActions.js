@@ -8,30 +8,28 @@ export const getArticle = slug => async dispath => {
       method: 'get',
       url: `articles/${slug}`
     })
-    .then(res =>{
+    .then(res => {
       dispath({
         type: GET_ARTICLE,
         payload: res.data
-      })
-    }
-    )
+      });
+    })
     .catch(error => {
-        toast.error(error.response.data.errors.error[0], { autoClose: false })
+      toast.error(error.response.data.errors.error[0], { autoClose: false });
     });
 };
 
 export const deleteArticles = slug => dispatch => {
-  axiosConfig
+  return axiosConfig
     .request({
       method: 'delete',
-      url: `articles/${slug}`,
+      url: `articles/${slug}`
     })
-    .then((res) =>{
-      toast.success('Article deleted!')
+    .then(res => {
+      toast.success('Article deleted!');
       dispatch({
         type: DELETE_ARTICLE,
         payload: true
-      })
-    }
-      )
+      });
+    });
 };

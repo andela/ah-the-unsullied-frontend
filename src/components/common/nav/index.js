@@ -27,7 +27,6 @@ class Nav extends Component {
     this.props.logoutUser();
     this.props.history.go('/');
   }
-
   onEnterkeypress = e => {
     if (e.key === 'Enter' && this.state.search !== null) {
       const searchtext = this.state.search;
