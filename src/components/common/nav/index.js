@@ -7,7 +7,7 @@ import M from 'materialize-css';
 import '../../../assets/css/nav.scss';
 import Logo from '../../../assets/images/Logo.png';
 import { logoutUser } from '../../../actions/loginActions';
-import { getSearchedArticles } from '../../../actions/ArticleActions/actions';
+import { getSearchedArticles, getArticles } from '../../../actions/ArticleActions/actions';
 import SignUp from '../../auth/SignUp';
 
 class Nav extends Component {
@@ -37,6 +37,9 @@ class Nav extends Component {
       [e.target.id]: e.target.value
     });
   };
+  loadArticles=(e)=>{
+    this.props.getArticles()
+  }
   render() {
     const img = require('../../../assets/images/profile.png');
     const { isAuthenticated, user } = this.props.auth;
@@ -137,6 +140,7 @@ class Nav extends Component {
                     src={Logo}
                     className="img-responsive"
                     alt="++ah-unsullied"
+                    onClick={this.loadArticles}
                   />
                 </NavLink>
               </div>
@@ -167,6 +171,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { logoutUser, getSearchedArticles }
+    { logoutUser, getSearchedArticles, getArticles }
   )(Nav)
 );

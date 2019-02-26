@@ -1,0 +1,26 @@
+.error-div {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./../images/pap.jpeg') no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+.column {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+
+  p {
+    align-content: center;
+    padding: 20px;
+    margin: 5em auto;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+  }
+}
