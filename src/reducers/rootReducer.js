@@ -9,16 +9,18 @@ import passwordreset from './passwordResetReducer';
 import articleReducer from './ArticleReducers/articleReducer';
 import articlereducer from './Articles';
 import ratingReducer from './RatingsReducer/RatingsReducer';
+import likeDislikeReducer from './LikeReducer';
 
 export default combineReducers({
   signup: signUpReducer,
   verifyEmail: verificationReducer,
-  auth : loginReducer,
+  auth: loginReducer,
   errors: errorReducer,
   socialLogin,
   passwordreset,
   profile,
   articles: articleReducer,
   articlereducer,
-  rating: ratingReducer
+  rating: ratingReducer,
+  likesDislikes: likeDislikeReducer
 });
