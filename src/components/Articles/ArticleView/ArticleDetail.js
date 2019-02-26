@@ -50,6 +50,11 @@ class ArticleDetail extends Component {
           <ArticleDelete {...this.props} />
           <LikeDislike {...this.props} />
           <SocialShare title={shareTitle} slug={shareSlug} />
+          <SocialShare
+            title={shareTitle}
+            slug={shareSlug}
+          />
+
         </div>
       );
     }
