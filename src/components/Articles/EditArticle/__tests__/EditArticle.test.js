@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16/build';
-import { EditArticle } from '../index';
+import { EditArticle, mapStateToProps } from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -90,5 +90,18 @@ describe('EditArticle', () => {
       }
     });
     expect(props.history.push).toHaveBeenCalledWith('/article/how-to-become-a-god-xd0ctx6n');
+  });
+  it('The mapStateToProps', () => {
+    const state = {
+      auth: {
+        isAuthenticated: true,
+        user: {
+          username: 'kwanj',
+          email: 'kwanj@gmail.com'
+        }
+      }
+    };
+    const props = mapStateToProps(state);
+    expect(props).toEqual(state);
   });
 });

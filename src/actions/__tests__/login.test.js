@@ -71,4 +71,30 @@ describe('Login User', () => {
       expect(store.getActions()).toEqual(expectedAction);
     });
   });
+
+  it('it should dispatch logout when user wants to exit', () => {
+    const mockHttpResponse = {
+      status: 200,
+      response: { status: 200 }
+    };
+    const expectedAction = [
+      {
+        type: "LOGOUT_USER"},{ 
+          payload: {},
+          type: "SET_CURRENT_USER"
+        }
+      ];
+    const store = mockStore();
+  
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      return request.reject({
+        status: 200,
+        response: mockHttpResponse
+      });
+    });
+    store.dispatch(actions.logoutUser()) 
+      expect(store.getActions()).toEqual(expectedAction);
+    });
+ 
 });

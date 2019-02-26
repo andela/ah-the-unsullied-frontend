@@ -2,7 +2,7 @@ import axiosConfig from '../axiosConfig';
 import { PASSWORD_RESET, PASSWORD_RESET_ERROR, SEND_EMAIL_ERROR,SEND_EMAIL } from './actionTypes';
 
 export const resetPassword = (password,confirm_password, token) => dispatch => {
-    axiosConfig
+    return axiosConfig
     .request({
         method:'put',
         url:'users/password-done/'+token,
@@ -24,7 +24,7 @@ export const resetPassword = (password,confirm_password, token) => dispatch => {
 }
 
 export const sendEmail=(user_email)=>dispatch => {
-    axiosConfig
+    return axiosConfig
     .request({
         method:'post',
         url:'users/password-reset/',

@@ -1,9 +1,11 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16/build';
-import { MyEditor } from '../index';
+import { MyEditor, mapStateToProps } from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+
 
 describe('CreateArticle', () => {
   let props;
@@ -67,6 +69,19 @@ describe('CreateArticle', () => {
       }
     });
     expect(props.history.push).toHaveBeenCalledWith('/article/kwanj');
+  });
+  it('The mapStateToProps', () => {
+    const state = {
+      auth: {
+        isAuthenticated: true,
+        user: {
+          username: 'kwanj',
+          email: 'kwanj@gmail.com'
+        }
+      }
+    };
+    const props = mapStateToProps(state);
+    expect(props).toEqual(state);
   });
   
 });

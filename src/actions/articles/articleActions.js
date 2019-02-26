@@ -21,7 +21,7 @@ export const getArticle = slug => async dispath => {
 };
 
 export const deleteArticles = slug => dispatch => {
-  axiosConfig
+  return axiosConfig
     .request({
       method: 'delete',
       url: `articles/${slug}`,

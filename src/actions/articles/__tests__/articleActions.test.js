@@ -37,4 +37,27 @@ describe('Articles', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+  it('send fetch article action', () => {
+    const MockHttpResponse = {
+      status: 200,
+      data: { status: 200 }
+    };
+    const expectedActions = [
+      {
+        type: types.DELETE_ARTICLE
+      }
+    ];
+    const store = mockStore();
+    moxios.wait(() => {
+      const request = moxios.request.mostRecent();
+      return request.resolve({
+        status: 200,
+        response: MockHttpResponse
+      });
+    });
+
+    store.dispatch(actions.deleteArticles()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
 });

@@ -3,7 +3,55 @@
 exports[`Rating component should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(ArticleRating) />,
+  Symbol(enzyme.__unrendered__): <ArticleRating
+    article={
+      Object {
+        "article": Object {
+          "article": Object {
+            "author": Object {
+              "username": "nesh",
+            },
+          },
+        },
+      }
+    }
+    auth={
+      Object {
+        "isAuthenticated": true,
+        "user": Object {
+          "username": "allan",
+        },
+      }
+    }
+    getAverageRating={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "slug": "article-slug",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    postRating={[MockFunction]}
+    rating={
+      Object {
+        "rating": 5,
+      }
+    }
+    slug={
+      Object {
+        "slug": "article-slug",
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,59 +64,75 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": <t
+        color="orange"
+        onClick={[Function]}
+        value={
+          Object {
+            "rating": 5,
+          }
+        }
+        weight="25"
+      />,
+      "className": "container",
     },
     "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "color": "orange",
+        "onClick": [Function],
+        "value": Object {
+          "rating": 5,
         },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
+        "weight": "25",
       },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
     },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": <t
+          color="orange"
+          onClick={[Function]}
+          value={
+            Object {
+              "rating": 5,
+            }
+          }
+          weight="25"
+        />,
+        "className": "container",
       },
       "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "color": "orange",
+          "onClick": [Function],
+          "value": Object {
+            "rating": 5,
           },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
+          "weight": "25",
         },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

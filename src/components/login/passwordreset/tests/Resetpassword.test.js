@@ -2,20 +2,61 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import expect from 'expect';
 import Adapter from 'enzyme-adapter-react-16';
-import Resetpassword from '../Resetpassword';
+import {mapStateToProps, Resetpassword} from '../Resetpassword';
 import * as types from '../../../../actions/actionTypes'
 import passwordResetReducer from '../../../../reducers/passwordResetReducer'
 
 Enzyme.configure({ adapter: new Adapter() });
 describe('component', () => {
-  let formContainer;
+  let props;
+  let wrapper;
+  let wrapperInstance;
+  let state;
   beforeEach(() => {
-    formContainer = shallow(<Resetpassword className='emailform' />);
+    
+    props={
+      message: {},
+      errors: {},
+      success: false,
+      message:'Succesful',
+      match:{
+        params:{
+          token :'hgfukjk',
+        },
+      },
+      
+      resetPassword: jest.fn(() => {
+        Promise.resolve();
+      }),
+    }
+
+    wrapper = shallow(<Resetpassword {...props} />);
+    wrapperInstance = wrapper.instance();
   });
-  it('matches the snapshot', () => {
-    expect(formContainer).toMatchSnapshot();
+  it('should render password reset form', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should change the state when calling handleChange', () => {
+    const event = {
+      target: {
+        id: 'password',
+        value: '$$#EWDsad'
+      }
+    };
+    wrapperInstance.handleChange(event);
+    expect(wrapperInstance.state.password).toEqual(event.target.value);
+  });
+
+  it('should initiate the updatePassword action on calling handleSubmit', () => {
+    const event = {
+      preventDefault: jest.fn()
+    };
+    wrapperInstance.setState(state);
+    wrapperInstance.handleSubmit(event);
+    expect(props.resetPassword).toHaveBeenCalled();
   });
   it('renders form succesfully', () => {
+    const formContainer = shallow(<Resetpassword className="emailform"/>);
     expect(formContainer.length).toEqual(1);
   });
   it('renders home div succesfully', () => {
@@ -75,6 +116,21 @@ describe('password reducer', () => {
     };
     const newState = passwordResetReducer(initialState, action);
     expect(newState.success).toEqual(false);
+  });
+
+  describe('The mapStateToProps', () => {
+    const state = {
+      passwordreset: {
+        success: false,
+        message: '',       
+        errors: {
+          response: 'This is a response'
+        }
+      }
+    };
+    const props = mapStateToProps(state);
+    expect(props.success).toEqual(state.passwordreset.success);
+    expect(props.response).toEqual(state.passwordreset.response);
   });
 
 });

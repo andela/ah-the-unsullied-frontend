@@ -3,34 +3,63 @@ import Enzyme, { shallow} from 'enzyme';
 import expect from 'expect';
 import Adapter from 'enzyme-adapter-react-16';
 import moxios from 'moxios';
-import Resetpasswordemail from '../Resetpasswordemail';
+import {Resetemail, mapStateToProps} from '../Resetpasswordemail';
 import * as types from '../../../../actions/actionTypes'
 import passwordResetReducer from '../../../../reducers/passwordResetReducer'
 
 Enzyme.configure({ adapter: new Adapter() });
 describe('component', () => {
   let formContainer;
+  let props;
+  let wrapper;
+  let wrapperInstance;
   beforeEach(() => {
-    formContainer = shallow(<Resetpasswordemail className='emailform' />);
-    moxios.install();
+    
+    props={
+      sendemailerr:{
+        sendemailerr:{
+          sendemailerr:{error:''}
+        }
+      },
+      success:false,
+      sendemail:{},
+      sendEmail: jest.fn(() => {
+        Promise.resolve();
+      }),
+    }
+
+    wrapper = shallow(<Resetemail {...props} />);
+    wrapperInstance = wrapper.instance();
   });
   afterEach(() =>{
     moxios.uninstall();
   });
   it('matches the snapshot', () => {
-    expect(formContainer).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
-  it('renders form succesfully', () => {
-    expect(formContainer.length).toEqual(1);
+  it('should initiate the send email action on calling handleSubmit', () => {
+    const event = {
+      preventDefault: jest.fn(),
+    };
+    wrapperInstance.handleSubmit(event);
+    expect(props.sendEmail).toHaveBeenCalled();
   });
-  it('renders home div succesfully', () => {
-    const formContainer2 = shallow(<Resetpasswordemail className="homediv"/>);
-    expect(formContainer2.length).toEqual(1);
+
+
+  it('should change the state when calling handleChange', () => {
+    const event = {
+      target: {
+        id: 'email',
+        value: 'kelvin@gmail.com'
+      }
+    };
+    wrapperInstance.handleChange(event);
+    expect(wrapperInstance.state.email).toEqual(event.target.value);
   });
-  it('renders input succesfully', () => {
-    const formContainer2 = shallow(<Resetpasswordemail className="input"/>);
-    expect(formContainer2.length).toEqual(1);
+  it('should render email form', () => {
+    expect(wrapper).toMatchSnapshot();
   });
+  
 });
 
 const initialState = {};
@@ -51,6 +80,20 @@ describe('password reducer', () => {
     expect(passwordResetReducer(initialState, types.SEND_EMAIL_ERROR)).toEqual(
       initialState
     );
+  });
+  describe('The mapStateToProps', () => {
+    const state = {
+      passwordreset: {
+        success: false,
+        message: '',       
+        errors: {
+          response: 'This is a response'
+        }
+      }
+    };
+    const props = mapStateToProps(state);
+    expect(props.success).toEqual(state.passwordreset.success);
+    expect(props.response).toEqual(state.passwordreset.response);
   });
 
 });

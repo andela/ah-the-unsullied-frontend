@@ -24,7 +24,7 @@ const articleDetail = props => {
     const auth = props.auth;
     if (auth.isAuthenticated) {
       const article = props.article.article.article;
-      const author = article.author;
+      const author = uarticle.author;
       const user = auth.user.username;
       if (user === author.username) {
         return (
