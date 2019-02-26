@@ -1,9 +1,9 @@
 import { Row, Col } from 'react-materialize';
+import { NavLink } from 'react-router-dom';
 import dateformat from 'dateformat';
 import renderHTML from 'react-render-html';
 import React from 'react';
 import '../../../../assets/css/articleDetail.scss';
-
 
 const articleDetail = props => {
   const article = props.article.article.article;
@@ -37,6 +37,25 @@ const articleDetail = props => {
     }
   };
 
+  const ownerUpdate = () => {
+    const auth = props.auth;
+    if (auth.isAuthenticated) {
+      const article = props.article.article.article;
+      const author = article.author;
+      const user = auth.user.username;
+
+      if (user === author.username) {
+        return (
+          <div className="update-link">
+            <NavLink to="/edit-article">
+              <i className="material-icons">edit</i>
+            </NavLink>
+          </div>
+        );
+      }
+    }
+  };
+
   return (
     <div className="container">
       <div>
@@ -64,11 +83,13 @@ const articleDetail = props => {
           <Col>
             <b className="description">{formatDate}</b>
           </Col>
+          { ownerUpdate() }
         </Row>
         <div className="bd-image">
           <p>{renderHTML(article.body)}</p>
         </div>
         {getTags()}
+
         <hr />
         <div />
       </div>

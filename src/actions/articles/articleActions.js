@@ -1,12 +1,11 @@
 import { toast } from 'react-toastify';
-import axios from '../../axiosConfig';
+import axiosConfig from '../../axiosConfig';
 import { GET_ARTICLE, DELETE_ARTICLE } from './actionTypes';
 
 
-const token = localStorage.getItem('jwtToken');
-const goodToken = 'Bearer ' + token;
+
 export const getArticle = slug => async dispath => {
-  await axios
+  await axiosConfig
     .request({
       method: 'get',
       url: `articles/${slug}`
@@ -23,13 +22,10 @@ export const getArticle = slug => async dispath => {
 };
 
 export const deleteArticles = slug => dispatch => {
-  axios
+  axiosConfig
     .request({
       method: 'delete',
       url: `articles/${slug}`,
-      headers: {
-        Authorization: goodToken
-      }
     })
     .then((res) =>{
       toast.success('Article deleted!')
