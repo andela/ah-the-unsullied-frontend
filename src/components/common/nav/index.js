@@ -50,7 +50,7 @@ class Nav extends Component {
             <div className="col s12 ">
               <div className="row" id="topbarsearch">
                 <div className="input-field col s6 s12 red-text">
-                  <i className="red-text material-icons prefix">search</i>
+                <i className="red-text material-icons prefix">search</i>
                   <input
                     type="text"
                     placeholder="search"
@@ -58,7 +58,7 @@ class Nav extends Component {
                     onKeyPress={this.onEnterkeypress}
                     className="autocomplete black-text"
                     onChange={this.handleChange}
-                  />
+                  />       
                 </div>
               </div>
             </div>
@@ -124,7 +124,9 @@ class Nav extends Component {
         </li>
 
         <li>
-          <SignUp />
+        <a href="/signup" className="btn #9BC995 z-depth-0">
+        Sign Up
+          </a>
         </li>
       </ul>
     );

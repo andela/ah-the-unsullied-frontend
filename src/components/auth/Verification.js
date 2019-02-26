@@ -47,7 +47,7 @@ class Verification extends Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     verify: state.verifyEmail
   };

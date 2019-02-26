@@ -4,7 +4,7 @@ import axiosConfig from '../axiosConfig';
 
 export const verifyUser = payload => dispatch => {
   const url = `activate/account/${payload.pk}/${payload.token}`;
-  axiosConfig
+  return axiosConfig
     .request({
       method: 'get',
       url: url
