@@ -6,14 +6,13 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import SocialAuthClass, { mapDispatchToProps } from './SocialLogin';
+import { FETCH_CALL, FETCH_FAILED } from '../../actions/SocialAuth/SocialAuthTypes';
 
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const middleware = [thunk];
 const fakeStore = configureStore(middleware);
-
-
 
 describe('<SocialAuthClass /> snapshot', () => {
   it('Component should match the snapshot', () => {
@@ -68,6 +67,42 @@ describe('Testing all the props', () => {
       username: 'Allan Mogusu'
     };
     mapDispatchToProps(dispatch).receivedUsers(authData);
+    expect(dispatch.mock.calls[0][0]).toEqual(expectedData);
+  });
+
+});
+
+describe('test fetching true', () => {
+  const dispatch = jest.fn();
+
+  it('returns a fetching message when fetching', ()=>{
+    const expectedData = {
+      type: FETCH_CALL,
+      payload: {
+        fetching: true,
+        message: 'fetching'
+      }
+    };
+    mapDispatchToProps(dispatch).fetchingCall();
+    expect(dispatch.mock.calls[0][0]).toEqual(expectedData)
+  });
+});
+
+describe('test fetching false', () =>{
+  const dispatch = jest.fn();
+
+  it('returns a fetch failed error when fetch fails', () =>{
+    const error = {
+      'message': 'failed fetch'
+    };
+    const expectedData = {
+      type: FETCH_FAILED,
+      payload: {
+        fetching: false,
+        message: error
+      }
+    };
+    mapDispatchToProps(dispatch).fetchFailed(error);
     expect(dispatch.mock.calls[0][0]).toEqual(expectedData);
   });
 });

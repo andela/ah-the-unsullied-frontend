@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/socialAuth.css';
 import './assets/css/404.css';
+import './assets/css/rating.scss';
 import Verification from './components/auth/Verification';
 import SocialAuthentication from './components/SocialAuth/SocialLogin';
 import Resetpasswordemail from './components/login/passwordreset/Resetpasswordemail';

@@ -8,6 +8,7 @@ import ArticleView from './views/ArticleView';
 import ArticleDelete from './ArticleDelete';
 import Nav from '../../common/nav';
 import SocialShare from '../../../components/SocialSharing/shareArticle';
+import Rating from '../../../components/Rating/RatingComponent';
 
 class ArticleDetail extends Component {
   state = {
@@ -36,15 +37,24 @@ class ArticleDetail extends Component {
         </div>
       );
     } else {
+      const slug = this.props.article.article.article.slug;
+      const rating = this.props.article.article.article.rating;
+      const shareTitle = this.props.article.article.article.title;
+      const shareSlug = this.props.match.url;
       return (
         <div>
           <Nav />
           <ArticleView {...this.props} />
+          <Rating
+            slug={slug}
+            rating={rating}
+          />
           <ArticleDelete {...this.props} />
           <SocialShare
-            title={this.props.article.article.article.title}
-            slug={this.props.match.url}
+            title={shareTitle}
+            slug={shareSlug}
           />
+
         </div>
       );
     }
