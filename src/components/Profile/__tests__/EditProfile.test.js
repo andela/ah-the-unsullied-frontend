@@ -1,43 +1,62 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16/build';
-import { ViewProfile } from '../EditProfile';
+import { ViewProfile, mapStateToProps } from '../EditProfile';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-describe('ViewProfile', () => {
+describe('get profile', () => {
   let props;
   let wrapper;
   let wrapperInstance;
-
+  let state;
   beforeEach(() => {
     props = {
+      bio: 'a bio ',
+      image: 'hshshs',
+      username: 'nesh',
+
       auth: {
         isAuthenticated: true,
         user: {
-          username: 'kwanj',
-          email: 'kwanj@gmail.com'
+          username: 'nesh'
         }
       },
-      actions: {
-        EditUserProfile: jest.fn(() => {
-          Promise.resolve();
-        })
-      }
+
+      match: {
+        params: {
+          username: 'nesh'
+        }
+      },
+
+      EditUserProfile: jest.fn()
     };
+
+    state = {
+      auth: {},
+      profile: {},
+      fetched: true
+    };
+
     wrapper = shallow(<ViewProfile {...props} />);
     wrapperInstance = wrapper.instance();
   });
-  it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+
+  it('should mapStateToProps', () => {
+    const props = mapStateToProps(state);
+    expect(props.profile).toEqual(state.profile.profile);
   });
-  it('should update state when onchange handler is called', () => {
-    const event = {
-      target: {
-        value: 'yayayayy'
-      }
-    }
-    wrapperInstance.onChange(event);
-    expect(wrapperInstance.state.bio).toEqual(event.target.value);
+
+  it('should change the state when calling handLike', () => {
+    const e = {
+      preventDefault: jest.fn()
+    };
+    const username = 'nesh';
+    const data = { bio: 'a bio ', image: 'hshshs' };
+    wrapperInstance.handleSubmit(e);
+    expect(props.EditUserProfile).toHaveBeenCalledWith(username, data);
+  });
+
+  it('should render article view component', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });

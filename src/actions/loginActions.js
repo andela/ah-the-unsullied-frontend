@@ -20,6 +20,7 @@ export const loginUser = userData => dispatch => {
       localStorage.setItem('jwtToken', token);
       setAuthToken(token);
       const decoded = res.data.user;
+      localStorage.setItem('username', decoded.username);
       toast.success('Welcome to Authors Haven ' + decoded.username, {
         autoClose: 4000
       });
@@ -45,14 +46,13 @@ export const setCurrentUser = decoded => {
   };
 };
 
-
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
   localStorage.removeItem('jwtToken');
   dispatch({
     type: LOGOUT_USER
   });
-  localStorage.removeItem('jwtToken');
+  localStorage.clear();
   // Remove auth header for future requests
   setAuthToken(false);
   // Set current user to {} which will set isAuthenticated to false

@@ -1,33 +1,53 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16/build';
-import Profile from '../Profile';
+import { Profile, mapStateToProps } from '../Profile';
 
 Enzyme.configure({ adapter: new Adapter() });
+describe('get profile', () => {
+  let props;
+  let wrapper;
+  let wrapperInstance;
+  let state;
+  beforeEach(() => {
+    props = {
+      auth: {
+        isAuthenticated: true,
+        user: {
+          username: 'nesh'
+        }
+      },
 
-function setup() {
-  const props = {
-    registerUser: jest.fn()
-  };
-  const wrapper = shallow(<Profile {...props} />);
+      profile: {
+        profile: {}
+      },
+      match: {
+        params: {
+          username: 'nesh'
+        }
+      },
 
-  return {
-    props,
-    wrapper
-  };
-}
+      getUserProfile: async () => {
+        await jest.fn();
+      }
+    };
 
-describe('<Profile /> snapshot', () => {
-  it('Component should match the snapshot', () => {
-    const profileComponent = shallow(<Profile />);
-    expect(profileComponent).toMatchSnapshot();
+    state = {
+      auth: {},
+      profile: {},
+      fetched: true
+    };
+
+    wrapper = shallow(<Profile {...props} />);
+    wrapperInstance = wrapper.instance();
   });
-});
 
-describe('Edit Profile tests', () => {
-  it('renders the edit form', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('img')).toBeDefined();
-    expect(wrapper.find('image')).toBeDefined();
+  it('should mapStateToProps', () => {
+    const props = mapStateToProps(state);
+    expect(props.profile).toEqual(state.profile.profile);
+  });
+
+  it('should render article view component', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });

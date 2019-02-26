@@ -2,8 +2,6 @@ import { toast } from 'react-toastify';
 import axiosConfig from '../../axiosConfig';
 import { GET_ARTICLE, DELETE_ARTICLE } from './actionTypes';
 
-
-
 export const getArticle = slug => async dispath => {
   await axiosConfig
     .request({

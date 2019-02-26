@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import { Col, Preloader, Row } from 'react-materialize';
 import ProfileView from './views/viewProfileView';
-import * as profileActions from '../../actions/profile/profileActions';
+import { getUserProfile } from '../../actions/profile/profileActions';
 
-class Profile extends Component {
+export class Profile extends Component {
   state = {
     fetched: false
   };
 
   componentDidMount = () => {
-    const { actions, auth } = this.props;
-    if (!auth.isAuthenticated) {
-      this.props.history.push('/login')
-    }
-    const username = this.props.auth.user.username;
-
-    actions.getUserProfile(username).then(() => {
+    const username = this.props.match.params.username;
+    this.props.getUserProfile(username).then(() => {
       this.setState({
         fetched: true
       });
     });
-  };
-  componentWillReceiveProps(nextProps){
-    const { auth } = nextProps;
-    if (!auth.isAuthenticated) {
+    const auth = this.props.auth.isAuthenticated
+    if(!auth){
       this.props.history.push('/login')
     }
-  }
+  };
 
   render() {
     if (!this.state.fetched) {
@@ -53,20 +46,20 @@ class Profile extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(profileActions, dispatch)
-  };
-}
+Profile.propTypes = {
+  UserProfile: PropTypes.object.isRequired,
+  getUserProfile: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  match: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
-function mapStateToProps(state) {
-  return {
-    UserProfile: state.profile,
-    auth: state.auth
-  };
-}
+export const mapStateToProps = state => ({
+  UserProfile: state.profile,
+  auth: state.auth
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { getUserProfile }
 )(Profile);

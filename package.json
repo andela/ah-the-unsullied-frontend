@@ -9,6 +9,7 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "connected-react-router": "^6.3.0",
+    "cors": "^2.8.5",
     "dateformat": "^3.0.3",
     "draft-js": "^0.10.5",
     "es6-shim": "^0.35.4",

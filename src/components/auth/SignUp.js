@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import '../../assets/css/signup.scss';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   state = {
     username: ' ',
     email: '',

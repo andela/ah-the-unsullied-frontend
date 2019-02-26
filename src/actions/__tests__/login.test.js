@@ -13,14 +13,17 @@ describe('Login User', () => {
   });
 
   const store = mockStore();
-
+  const mockRes = {
+    status: 201,
+    data: { status: 201 }
+  };
   moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      return request.resolve({
-        status: 201,
-        response: mockRes
-      });
+    const request = moxios.requests.mostRecent();
+    return request.resolve({
+      status: 201,
+      response: mockRes
     });
+  });
 
   afterEach(function() {
     moxios.uninstall();
@@ -36,12 +39,36 @@ describe('Login User', () => {
         type: types.SET_CURRENT_USER
       }
     ];
-    
 
     store.dispatch(actions.loginUser(user)).then(() => {
       expect(store.getActions()).toEqual(expectedAction);
     });
   });
 
-  
+  it('it should dispatch get errors when user does not exist', () => {
+    const mockHttpResponse = {
+      status: 400,
+      response: { status: 400 }
+    };
+    const expectedAction = [
+      {
+        type: types.GET_ERRORS
+      }
+    ];
+    const store = mockStore();
+    const user = {
+      email: 'email@gmail.com',
+      password: 'password'
+    };
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      return request.reject({
+        status: 400,
+        response: mockHttpResponse
+      });
+    });
+    store.dispatch(actions.loginUser(user)).then(() => {
+      expect(store.getActions()).toEqual(expectedAction);
+    });
+  });
 });

@@ -1,19 +1,17 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import * as articleActions from '../../../actions/articles/articleActions';
+import {deleteArticles}  from '../../../actions/articles/articleActions';
 import { getArticles } from '../../../actions/ArticleActions/actions';
 import '../../../assets/css/articleDetail.scss';
 
-class ArticleDelete extends Component {
+export class ArticleDelete extends Component {
   ownerDelete = () => {
     const auth = this.props.auth;
     if (auth.isAuthenticated) {
       const article = this.props.article.article.article;
       const author = article.author;
       const user = auth.user.username;
-
       if (user === author.username) {
         return (
           <div className="container">
@@ -31,8 +29,7 @@ class ArticleDelete extends Component {
   deleteAction = () => {
     const article = this.props.article.article.article;
     const slug = article.slug;
-    const { actions } = this.props;
-    actions.deleteArticles(slug);
+    this.props.deleteArticles(slug);
     getArticles();
     this.props.history.push('/');
   };
@@ -45,24 +42,18 @@ class ArticleDelete extends Component {
 ArticleDelete.propTypes = {
   article: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
+  deleteArticles: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(articleActions, dispatch)
-  };
-}
 
-function mapStateToProps(state) {
-  return {
+
+export const mapStateToProps = (state)=> ({
     article: state.articlereducer,
     auth: state.auth
-  };
-}
+});
 
 export default connect(
   mapStateToProps,
-  { mapDispatchToProps, getArticles }
+  { deleteArticles, getArticles }
 )(ArticleDelete);
