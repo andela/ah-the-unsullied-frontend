@@ -1,31 +1,43 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import EditProfile from '../EditProfile.js';
+import Adapter from 'enzyme-adapter-react-16/build';
+import { ViewProfile } from '../EditProfile';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-function setup() {
-  const props = {
-    registerUser: jest.fn()
-  };
-  const wrapper = shallow(<EditProfile {...props} />);
+describe('ViewProfile', () => {
+  let props;
+  let wrapper;
+  let wrapperInstance;
 
-  return {
-    props,
-    wrapper
-  };
-}
-
-describe('<EditProfile /> snapshot', () => {
-  it('Component should match the snapshot', () => {
-    const editprofileComponent = shallow(<EditProfile/>);
-    expect(editprofileComponent).toMatchSnapshot();
+  beforeEach(() => {
+    props = {
+      auth: {
+        isAuthenticated: true,
+        user: {
+          username: 'kwanj',
+          email: 'kwanj@gmail.com'
+        }
+      },
+      actions: {
+        EditUserProfile: jest.fn(() => {
+          Promise.resolve();
+        })
+      }
+    };
+    wrapper = shallow(<ViewProfile {...props} />);
+    wrapperInstance = wrapper.instance();
   });
-});
-
-describe('Edit Profile tests', () => {
-  it('renders the edit form', () => {
-    const { wrapper } = setup();
+  it('should render correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should update state when onchange handler is called', () => {
+    const event = {
+      target: {
+        value: 'yayayayy'
+      }
+    }
+    wrapperInstance.onChange(event);
+    expect(wrapperInstance.state.bio).toEqual(event.target.value);
   });
 });

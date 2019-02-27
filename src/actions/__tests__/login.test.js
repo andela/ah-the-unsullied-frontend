@@ -7,34 +7,41 @@ import * as actions from '../loginActions';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('async api requests', () => {
+describe('Login User', () => {
   beforeEach(function() {
     moxios.install();
   });
+
+  const store = mockStore();
+
+  moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      return request.resolve({
+        status: 201,
+        response: mockRes
+      });
+    });
 
   afterEach(function() {
     moxios.uninstall();
   });
 
-  it('set current user after successifully calling api', () => {
-    const user = { email: 'kwanj@gmail.com', password: 'password' };
-
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response: user
-      });
-    });
+  it('it should dispatch loginUser', () => {
+    const user = {
+      email: 'email@gmail.com',
+      password: 'password'
+    };
     const expectedAction = [
       {
-        type: types.SET_CURRENT_USER,
-        payload: user
+        type: types.SET_CURRENT_USER
       }
     ];
-    const store = mockStore({ payload: {} });
-    store.dispatch(actions.setCurrentUser(user));
-    // return of async actions
-    expect(store.getActions()).toEqual(expectedAction);
+    
+
+    store.dispatch(actions.loginUser(user)).then(() => {
+      expect(store.getActions()).toEqual(expectedAction);
+    });
   });
+
+  
 });

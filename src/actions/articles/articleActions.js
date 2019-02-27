@@ -10,11 +10,12 @@ export const getArticle = slug => async dispath => {
       method: 'get',
       url: `articles/${slug}`
     })
-    .then(res =>
+    .then(res =>{
       dispath({
         type: GET_ARTICLE,
         payload: res.data
       })
+    }
     )
     .catch(error => {
         toast.error(error.response.data.errors.error[0], { autoClose: false })
