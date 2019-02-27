@@ -1,9 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EditProfile /> snapshot Component should match the snapshot 1`] = `
+exports[`ViewProfile should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(ViewProfile) />,
+  Symbol(enzyme.__unrendered__): <ViewProfile
+    actions={
+      Object {
+        "EditUserProfile": [MockFunction],
+      }
+    }
+    auth={
+      Object {
+        "isAuthenticated": true,
+        "user": Object {
+          "email": "kwanj@gmail.com",
+          "username": "kwanj",
+        },
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,59 +31,767 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": <Modal
+        actions={
+          Array [
+            <Button
+              flat={true}
+              modal="close"
+              node="button"
+              waves="light"
+            >
+              Close
+            </Button>,
+          ]
+        }
+        bottomSheet={false}
+        className="editPage"
+        fixedFooter={true}
+        header="Profile Edit"
+        modalOptions={Object {}}
+        trigger={
+          <button
+            className="btn waves-effect edit"
+          >
+            Edit profile
+            <i
+              className="material-icons right"
+            >
+              edit
+            </i>
+          </button>
+        }
+      >
+        <Row>
+          <img
+            alt="Avatar"
+            className="responsive-img circle editPageProfile"
+            height="100px"
+            onClick={[Function]}
+            width="100px"
+          />
+        </Row>
+        <Row>
+          <form
+            onSubmit={[Function]}
+          >
+            <label
+              htmlFor="bio"
+            >
+              Bio
+            </label>
+            <textarea
+              className="materialize-textarea"
+              id="bio"
+              onChange={[Function]}
+            />
+            <Row>
+              <Input
+                checked={false}
+                defaults={12}
+                label="Upload Image"
+                name="image"
+                onChange={[Function]}
+                s={12}
+                type="file"
+              />
+            </Row>
+            <Row
+              className="left-align"
+            >
+              <button
+                className="btn waves-effect edit "
+                type="submit"
+              >
+                Update
+              </button>
+            </Row>
+          </form>
+        </Row>
+      </Modal>,
     },
     "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
-        },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "actions": Array [
+          <Button
+            flat={true}
+            modal="close"
+            node="button"
+            waves="light"
+          >
+            Close
+          </Button>,
+        ],
+        "bottomSheet": false,
+        "children": Array [
+          <Row>
+            <img
+              alt="Avatar"
+              className="responsive-img circle editPageProfile"
+              height="100px"
+              onClick={[Function]}
+              width="100px"
+            />
+          </Row>,
+          <Row>
+            <form
+              onSubmit={[Function]}
+            >
+              <label
+                htmlFor="bio"
+              >
+                Bio
+              </label>
+              <textarea
+                className="materialize-textarea"
+                id="bio"
+                onChange={[Function]}
+              />
+              <Row>
+                <Input
+                  checked={false}
+                  defaults={12}
+                  label="Upload Image"
+                  name="image"
+                  onChange={[Function]}
+                  s={12}
+                  type="file"
+                />
+              </Row>
+              <Row
+                className="left-align"
+              >
+                <button
+                  className="btn waves-effect edit "
+                  type="submit"
+                >
+                  Update
+                </button>
+              </Row>
+            </form>
+          </Row>,
+        ],
+        "className": "editPage",
+        "fixedFooter": true,
+        "header": "Profile Edit",
+        "modalOptions": Object {},
+        "trigger": <button
+          className="btn waves-effect edit"
+        >
+          Edit profile
+          <i
+            className="material-icons right"
+          >
+            edit
+          </i>
+        </button>,
       },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <img
+              alt="Avatar"
+              className="responsive-img circle editPageProfile"
+              height="100px"
+              onClick={[Function]}
+              width="100px"
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Avatar",
+              "className": "responsive-img circle editPageProfile",
+              "height": "100px",
+              "onClick": [Function],
+              "src": undefined,
+              "width": "100px",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <form
+              onSubmit={[Function]}
+            >
+              <label
+                htmlFor="bio"
+              >
+                Bio
+              </label>
+              <textarea
+                className="materialize-textarea"
+                id="bio"
+                onChange={[Function]}
+              />
+              <Row>
+                <Input
+                  checked={false}
+                  defaults={12}
+                  label="Upload Image"
+                  name="image"
+                  onChange={[Function]}
+                  s={12}
+                  type="file"
+                />
+              </Row>
+              <Row
+                className="left-align"
+              >
+                <button
+                  className="btn waves-effect edit "
+                  type="submit"
+                >
+                  Update
+                </button>
+              </Row>
+            </form>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="bio"
+                >
+                  Bio
+                </label>,
+                <textarea
+                  className="materialize-textarea"
+                  id="bio"
+                  onChange={[Function]}
+                />,
+                <Row>
+                  <Input
+                    checked={false}
+                    defaults={12}
+                    label="Upload Image"
+                    name="image"
+                    onChange={[Function]}
+                    s={12}
+                    type="file"
+                  />
+                </Row>,
+                <Row
+                  className="left-align"
+                >
+                  <button
+                    className="btn waves-effect edit "
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                </Row>,
+              ],
+              "onSubmit": [Function],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Bio",
+                  "htmlFor": "bio",
+                },
+                "ref": null,
+                "rendered": "Bio",
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "materialize-textarea",
+                  "defaultValue": undefined,
+                  "id": "bio",
+                  "onChange": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "textarea",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Input
+                    checked={false}
+                    defaults={12}
+                    label="Upload Image"
+                    name="image"
+                    onChange={[Function]}
+                    s={12}
+                    type="file"
+                  />,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "checked": false,
+                    "defaults": 12,
+                    "label": "Upload Image",
+                    "name": "image",
+                    "onChange": [Function],
+                    "s": 12,
+                    "type": "file",
+                  },
+                  "ref": [Function],
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <button
+                    className="btn waves-effect edit "
+                    type="submit"
+                  >
+                    Update
+                  </button>,
+                  "className": "left-align",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Update",
+                    "className": "btn waves-effect edit ",
+                    "type": "submit",
+                  },
+                  "ref": null,
+                  "rendered": "Update",
+                  "type": "button",
+                },
+                "type": [Function],
+              },
+            ],
+            "type": "form",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
     },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": <Modal
+          actions={
+            Array [
+              <Button
+                flat={true}
+                modal="close"
+                node="button"
+                waves="light"
+              >
+                Close
+              </Button>,
+            ]
+          }
+          bottomSheet={false}
+          className="editPage"
+          fixedFooter={true}
+          header="Profile Edit"
+          modalOptions={Object {}}
+          trigger={
+            <button
+              className="btn waves-effect edit"
+            >
+              Edit profile
+              <i
+                className="material-icons right"
+              >
+                edit
+              </i>
+            </button>
+          }
+        >
+          <Row>
+            <img
+              alt="Avatar"
+              className="responsive-img circle editPageProfile"
+              height="100px"
+              onClick={[Function]}
+              width="100px"
+            />
+          </Row>
+          <Row>
+            <form
+              onSubmit={[Function]}
+            >
+              <label
+                htmlFor="bio"
+              >
+                Bio
+              </label>
+              <textarea
+                className="materialize-textarea"
+                id="bio"
+                onChange={[Function]}
+              />
+              <Row>
+                <Input
+                  checked={false}
+                  defaults={12}
+                  label="Upload Image"
+                  name="image"
+                  onChange={[Function]}
+                  s={12}
+                  type="file"
+                />
+              </Row>
+              <Row
+                className="left-align"
+              >
+                <button
+                  className="btn waves-effect edit "
+                  type="submit"
+                >
+                  Update
+                </button>
+              </Row>
+            </form>
+          </Row>
+        </Modal>,
       },
       "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
-          },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "actions": Array [
+            <Button
+              flat={true}
+              modal="close"
+              node="button"
+              waves="light"
+            >
+              Close
+            </Button>,
+          ],
+          "bottomSheet": false,
+          "children": Array [
+            <Row>
+              <img
+                alt="Avatar"
+                className="responsive-img circle editPageProfile"
+                height="100px"
+                onClick={[Function]}
+                width="100px"
+              />
+            </Row>,
+            <Row>
+              <form
+                onSubmit={[Function]}
+              >
+                <label
+                  htmlFor="bio"
+                >
+                  Bio
+                </label>
+                <textarea
+                  className="materialize-textarea"
+                  id="bio"
+                  onChange={[Function]}
+                />
+                <Row>
+                  <Input
+                    checked={false}
+                    defaults={12}
+                    label="Upload Image"
+                    name="image"
+                    onChange={[Function]}
+                    s={12}
+                    type="file"
+                  />
+                </Row>
+                <Row
+                  className="left-align"
+                >
+                  <button
+                    className="btn waves-effect edit "
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                </Row>
+              </form>
+            </Row>,
+          ],
+          "className": "editPage",
+          "fixedFooter": true,
+          "header": "Profile Edit",
+          "modalOptions": Object {},
+          "trigger": <button
+            className="btn waves-effect edit"
+          >
+            Edit profile
+            <i
+              className="material-icons right"
+            >
+              edit
+            </i>
+          </button>,
         },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <img
+                alt="Avatar"
+                className="responsive-img circle editPageProfile"
+                height="100px"
+                onClick={[Function]}
+                width="100px"
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Avatar",
+                "className": "responsive-img circle editPageProfile",
+                "height": "100px",
+                "onClick": [Function],
+                "src": undefined,
+                "width": "100px",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <form
+                onSubmit={[Function]}
+              >
+                <label
+                  htmlFor="bio"
+                >
+                  Bio
+                </label>
+                <textarea
+                  className="materialize-textarea"
+                  id="bio"
+                  onChange={[Function]}
+                />
+                <Row>
+                  <Input
+                    checked={false}
+                    defaults={12}
+                    label="Upload Image"
+                    name="image"
+                    onChange={[Function]}
+                    s={12}
+                    type="file"
+                  />
+                </Row>
+                <Row
+                  className="left-align"
+                >
+                  <button
+                    className="btn waves-effect edit "
+                    type="submit"
+                  >
+                    Update
+                  </button>
+                </Row>
+              </form>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    htmlFor="bio"
+                  >
+                    Bio
+                  </label>,
+                  <textarea
+                    className="materialize-textarea"
+                    id="bio"
+                    onChange={[Function]}
+                  />,
+                  <Row>
+                    <Input
+                      checked={false}
+                      defaults={12}
+                      label="Upload Image"
+                      name="image"
+                      onChange={[Function]}
+                      s={12}
+                      type="file"
+                    />
+                  </Row>,
+                  <Row
+                    className="left-align"
+                  >
+                    <button
+                      className="btn waves-effect edit "
+                      type="submit"
+                    >
+                      Update
+                    </button>
+                  </Row>,
+                ],
+                "onSubmit": [Function],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Bio",
+                    "htmlFor": "bio",
+                  },
+                  "ref": null,
+                  "rendered": "Bio",
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "materialize-textarea",
+                    "defaultValue": undefined,
+                    "id": "bio",
+                    "onChange": [Function],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "textarea",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "children": <Input
+                      checked={false}
+                      defaults={12}
+                      label="Upload Image"
+                      name="image"
+                      onChange={[Function]}
+                      s={12}
+                      type="file"
+                    />,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "checked": false,
+                      "defaults": 12,
+                      "label": "Upload Image",
+                      "name": "image",
+                      "onChange": [Function],
+                      "s": 12,
+                      "type": "file",
+                    },
+                    "ref": [Function],
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "children": <button
+                      className="btn waves-effect edit "
+                      type="submit"
+                    >
+                      Update
+                    </button>,
+                    "className": "left-align",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Update",
+                      "className": "btn waves-effect edit ",
+                      "type": "submit",
+                    },
+                    "ref": null,
+                    "rendered": "Update",
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": "form",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
       },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

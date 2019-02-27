@@ -5,30 +5,37 @@ import { withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { toast } from 'react-toastify';
 import 'react-quill/dist/quill.snow.css';
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css';
+
 import { editArticle } from '../../../actions/ArticleActions/actions';
 import Nav from '../../common/nav';
 import isEmpty from '../../../utils/isEmpty';
+import '../../../assets/css/createArticle.scss';
 
-class EditArticle extends Component {
+export class EditArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       body: '',
       description: '',
-      tag_list: ''
+      tag_list: [],
+      tag: ''
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
+    this.handleTagChange = this.handleTagChange.bind(this);
   }
 
   componentWillMount() {
     const { article } = this.props.articlereducer.article;
-    const { title, body, description } = article;
+    const { title, body, description, tag_list } = article;
     this.setState({
       title: title,
       body: body,
-      description: description
+      description: description,
+      tag_list: tag_list
     });
   }
   componentWillReceiveProps(nextProps) {
@@ -37,7 +44,6 @@ class EditArticle extends Component {
     nextProps.history.push(`/article/${slug}`);
   }
 
-  
   onHandleChange(e) {
     this.setState({ body: e });
   }
@@ -52,9 +58,20 @@ class EditArticle extends Component {
     const data = {
       article: this.state
     };
+
     this.props.editArticle(slug, data);
   }
-  
+  handleTagChange = tags => {
+    const { tag_list, tag } = this.state;
+    const tagSet = new Set(tag_list.map(item => item.toLowerCase()));
+    if (!tagSet.has(tag.toLowerCase())) {
+      this.setState({ tag_list: tags });
+    }
+  };
+  handleChangeInput = tag => {
+    this.setState({ tag });
+  };
+
   render() {
     return (
       <div>
@@ -80,7 +97,7 @@ class EditArticle extends Component {
                   this.setState({ description: e.target.value });
                 }}
                 className="form-control"
-                required
+                required 
               />
             </div>
             <div className="form-group">
@@ -89,6 +106,14 @@ class EditArticle extends Component {
                 formats={EditArticle.formats}
                 value={this.state.body}
                 onChange={this.onHandleChange}
+              />
+            </div>
+            <div className="tags">
+              <TagsInput
+                value={this.state.tag_list}
+                onChange={this.handleTagChange}
+                inputValue={this.state.tag}
+                onChangeInput={this.handleChangeInput}
               />
             </div>
             <button id="post" className="btn btn-primary">
