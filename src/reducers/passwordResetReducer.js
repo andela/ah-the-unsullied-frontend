@@ -9,8 +9,7 @@ const initialState = {
   };
   
   const passwordResetReducer = (state = initialState, action) => {
-    switch (action.type) {
-        
+    switch (action.type) {  
       case PASSWORD_RESET:
         return {
           ...state,
@@ -19,7 +18,8 @@ const initialState = {
         };
       case PASSWORD_RESET_ERROR:
         return {
-          errors: action.payload
+          errors: action.payload,
+          success:false
         };
         case SEND_EMAIL:
         return {
@@ -31,6 +31,7 @@ const initialState = {
         return {
           ...state,
           sendemailerr: action.payload,
+          success:false
         };
       default:
         return state;
