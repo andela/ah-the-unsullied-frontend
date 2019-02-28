@@ -9,7 +9,7 @@ import passwordreset from './passwordResetReducer';
 import articleReducer from './ArticleReducers/articleReducer';
 import articlereducer from './Articles';
 import ratingReducer from './RatingsReducer/RatingsReducer';
-import likeDislikeReducer from './LikeReducer';
+import bookmarkReducer from './BoomarkReducer';
 
 export default combineReducers({
   signup: signUpReducer,
@@ -22,5 +22,5 @@ export default combineReducers({
   articles: articleReducer,
   articlereducer,
   rating: ratingReducer,
-  likesDislikes: likeDislikeReducer
+  bookmarkReducer: bookmarkReducer
 });

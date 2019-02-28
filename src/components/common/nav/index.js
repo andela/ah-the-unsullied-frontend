@@ -8,7 +8,6 @@ import '../../../assets/css/nav.scss';
 import Logo from '../../../assets/images/Logo.png';
 import { logoutUser } from '../../../actions/loginActions';
 import { getSearchedArticles, getArticles } from '../../../actions/ArticleActions/actions';
-import SignUp from '../../auth/SignUp';
 
 class Nav extends Component {
   state = {
