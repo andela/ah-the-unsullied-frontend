@@ -1,0 +1,57 @@
+.signup-container {
+    position: absolute;
+    top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width:60%;
+    border-radius: px;
+    background-color: #f2f2f2;
+    padding: 20px 0 40px 0;
+    font-family: 'Nunito', Serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signup-container .col {
+    float: center;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 20%;
+    padding: 20 20px;
+    margin-top: 6px;
+}
+
+
+.signup-container .btn {
+    float: center;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.signup-container .input-field .prefix {
+    right: 0;
+    color: #35A7FF;
+    
+}
+
+.signup-container .material-icons {
+    color: #FF5964;
+
+}
+
+#signup-bot {
+    margin-right: 120px;
+}
+
+.sign-up-text, #btn-register{
+    margin-right: 100px;
+}
+  
+#already-member {
+    margin-left: 265px;
+    padding-top: 15px;
+}

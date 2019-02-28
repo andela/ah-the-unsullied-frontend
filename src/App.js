@@ -16,6 +16,7 @@ import Profile from './components/Profile/Profile';
 import { Home } from './components/home';
 import Article from './components/Articles/ArticleView/ArticleDetail';
 import EditArticle from './components/Articles/EditArticle';
+import SignUp from './components/auth/SignUp';
 import ErrorBoundary from './components/common/errorBoundary/ErrorBoundary';
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
             <Switch>
               <Route path="/" component={Home} exact Strict />
               <Route path="/create-article" component={MyEditor} exact Strict />
+              <Route path="/edit-article" component={EditArticle} exact Strict />
               <Route
                 path="/edit-article"
                 component={EditArticle}
@@ -41,6 +43,12 @@ const App = () => (
                 exact
                 Strict
               />
+              <Route
+              path="/signup"
+              component={SignUp}
+              exact
+              Strict
+            />
               <Route path="/password-reset" component={Resetpasswordemail} />
               <Route
                 path="/api/users/password-done/:token"
@@ -59,5 +67,4 @@ const App = () => (
     </div>
   </ErrorBoundary>
 );
-
 export default App;

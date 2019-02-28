@@ -17,8 +17,17 @@ function setup() {
   };
 }
 
+describe('<Profile /> snapshot', () => {
+  it('Component should match the snapshot', () => {
+    const profileComponent = shallow(<Profile/>);
+    expect(profileComponent).toMatchSnapshot();
+  });
+});
+
 describe('Edit Profile tests', () => {
   it('renders the edit form', () => {
     const { wrapper } = setup();
+    expect(wrapper.find('img')).toBeDefined();
+    expect(wrapper.find('image')).toBeDefined();
   });
 });

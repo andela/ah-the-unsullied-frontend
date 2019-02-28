@@ -7,7 +7,7 @@ export const registerUser = newUserData => dispatch => {
     user: newUserData
   };
 
-  axiosConfig
+  return axiosConfig
     .request({
       method: 'post',
       url: 'users/',

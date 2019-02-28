@@ -11,8 +11,6 @@
     "connected-react-router": "^6.3.0",
     "dateformat": "^3.0.3",
     "draft-js": "^0.10.5",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.9.1",
     "es6-shim": "^0.35.4",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^4.0.0",
@@ -53,19 +51,23 @@
     "react-scripts": "^2.1.5",
     "react-share": "^2.4.0",
     "react-toastify": "^4.5.2",
+    "redirect": "^0.2.0",
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
     "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "serve": "^10.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "lint": "eslint . --ext .js,.jsx",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "react-scripts start",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -79,6 +81,9 @@
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "jest": "^24.1.0",
     "moxios": "^0.4.0",
     "redux-mock-store": "^1.5.3"
   }

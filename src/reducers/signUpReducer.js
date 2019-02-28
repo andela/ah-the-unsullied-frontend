@@ -10,7 +10,6 @@ const signUpReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP_USER:
       return {
-        ...state,
         users: action.payload,
         success: true
       };
