@@ -1,0 +1,383 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorPage404 should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ErrorPage404 />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="bgimg"
+      >
+        <div
+          className="middle"
+        >
+          <h1>
+            404
+          </h1>
+          <hr />
+          <p>
+            OOPS!
+          </p>
+          <p>
+            The page you're trying to reach doesn't exist
+          </p>
+          <a
+            href="/"
+          >
+            <button
+              id="redirect"
+            >
+              Head back to the Haven
+            </button>
+          </a>
+        </div>
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="middle"
+        >
+          <h1>
+            404
+          </h1>
+          <hr />
+          <p>
+            OOPS!
+          </p>
+          <p>
+            The page you're trying to reach doesn't exist
+          </p>
+          <a
+            href="/"
+          >
+            <button
+              id="redirect"
+            >
+              Head back to the Haven
+            </button>
+          </a>
+        </div>,
+        "className": "bgimg",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              404
+            </h1>,
+            <hr />,
+            <p>
+              OOPS!
+            </p>,
+            <p>
+              The page you're trying to reach doesn't exist
+            </p>,
+            <a
+              href="/"
+            >
+              <button
+                id="redirect"
+              >
+                Head back to the Haven
+              </button>
+            </a>,
+          ],
+          "className": "middle",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "404",
+            },
+            "ref": null,
+            "rendered": "404",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "hr",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "OOPS!",
+            },
+            "ref": null,
+            "rendered": "OOPS!",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "The page you're trying to reach doesn't exist",
+            },
+            "ref": null,
+            "rendered": "The page you're trying to reach doesn't exist",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <button
+                id="redirect"
+              >
+                Head back to the Haven
+              </button>,
+              "href": "/",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Head back to the Haven",
+                "id": "redirect",
+              },
+              "ref": null,
+              "rendered": "Head back to the Haven",
+              "type": "button",
+            },
+            "type": "a",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="bgimg"
+        >
+          <div
+            className="middle"
+          >
+            <h1>
+              404
+            </h1>
+            <hr />
+            <p>
+              OOPS!
+            </p>
+            <p>
+              The page you're trying to reach doesn't exist
+            </p>
+            <a
+              href="/"
+            >
+              <button
+                id="redirect"
+              >
+                Head back to the Haven
+              </button>
+            </a>
+          </div>
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="middle"
+          >
+            <h1>
+              404
+            </h1>
+            <hr />
+            <p>
+              OOPS!
+            </p>
+            <p>
+              The page you're trying to reach doesn't exist
+            </p>
+            <a
+              href="/"
+            >
+              <button
+                id="redirect"
+              >
+                Head back to the Haven
+              </button>
+            </a>
+          </div>,
+          "className": "bgimg",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1>
+                404
+              </h1>,
+              <hr />,
+              <p>
+                OOPS!
+              </p>,
+              <p>
+                The page you're trying to reach doesn't exist
+              </p>,
+              <a
+                href="/"
+              >
+                <button
+                  id="redirect"
+                >
+                  Head back to the Haven
+                </button>
+              </a>,
+            ],
+            "className": "middle",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "404",
+              },
+              "ref": null,
+              "rendered": "404",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "hr",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "OOPS!",
+              },
+              "ref": null,
+              "rendered": "OOPS!",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "The page you're trying to reach doesn't exist",
+              },
+              "ref": null,
+              "rendered": "The page you're trying to reach doesn't exist",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <button
+                  id="redirect"
+                >
+                  Head back to the Haven
+                </button>,
+                "href": "/",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Head back to the Haven",
+                  "id": "redirect",
+                },
+                "ref": null,
+                "rendered": "Head back to the Haven",
+                "type": "button",
+              },
+              "type": "a",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

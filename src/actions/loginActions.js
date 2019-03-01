@@ -9,7 +9,7 @@ export const loginUser = userData => dispatch => {
   const formatData = {
     user: userData
   };
-  axiosConfig
+  return axiosConfig
     .request({
       method: 'post',
       url: 'users/login/',

@@ -7,7 +7,7 @@ import * as profileActions from '../../actions/profile/profileActions';
 import ImageUploaoder from '../../utils/ImageUploaoder';
 import '../../assets/styles/HomePage.scss';
 
-class ViewProfile extends Component {
+export class ViewProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {

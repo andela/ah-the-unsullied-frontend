@@ -19,9 +19,9 @@ class ArticleList extends Component {
   }
   componentWillMount() {
     let arr = _.values(this.props.articles['results']);
-      if(arr.length === 0){
-      this.props.getArticles();
-      }
+   if(arr.length === 0){
+   this.props.getArticles();
+   }
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.articles['count'] > 0) {

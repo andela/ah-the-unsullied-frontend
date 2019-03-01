@@ -5,18 +5,23 @@ import { withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { toast } from 'react-toastify';
 import 'react-quill/dist/quill.snow.css';
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css';
+
 import { createArticle } from '../../../actions/ArticleActions/actions';
 import Nav from '../../common/nav';
 import isEmpty from '../../../utils/isEmpty';
+import '../../../assets/css/createArticle.scss';
 
-class MyEditor extends Component {
+export class MyEditor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       body: '',
       description: '',
-      tag_list: ''
+      tag_list: [],
+      tag: ''
     };
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -32,11 +37,11 @@ class MyEditor extends Component {
     const slug = nextProps.articles.newArticle.article.slug;
     nextProps.history.push(`/article/${slug}`);
   }
-  onHandleChange(e) {
+  onHandleChange = e => {
     this.setState({ body: e });
-  }
+  };
 
-  onHandleSubmit(e) {
+  onHandleSubmit = e => {
     e.preventDefault();
     if (isEmpty(this.state.body)) {
       toast.error('Please provide the body field');
@@ -45,7 +50,17 @@ class MyEditor extends Component {
       article: this.state
     };
     this.props.createArticle(data);
-  }
+  };
+  handleTagChange = tags => {
+    const { tag_list, tag } = this.state;
+    const tagSet = new Set(tag_list.map(item => item.toLowerCase()));
+    if (!tagSet.has(tag.toLowerCase())) {
+      this.setState({ tag_list: tags });
+    }
+  };
+  handleChangeInput = tag => {
+    this.setState({ tag });
+  };
 
   render() {
     return (
@@ -84,6 +99,14 @@ class MyEditor extends Component {
                 value={this.state.body}
                 placeholder="Body"
                 onChange={this.onHandleChange}
+              />
+            </div>
+            <div className="tags">
+              <TagsInput
+                value={this.state.tag_list}
+                onChange={this.handleTagChange}
+                inputValue={this.state.tag}
+                onChangeInput={this.handleChangeInput}
               />
             </div>
             <button id="post" className="btn btn-primary">
