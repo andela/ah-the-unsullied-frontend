@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LikeDislike should render the like and dislike button 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LikeDislike
+    article={
+      Object {
+        "article": Object {
+          "article": Object {
+            "slug": "test",
+          },
+        },
+      }
+    }
+    changelikesDislikes={
+      Object {
+        "dislikes": 4,
+        "likes": 0,
+      }
+    }
+    dislikeArticle={[MockFunction]}
+    likeArticle={[MockFunction]}
+    likesDislikes={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="white"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "",
+            }
+          }
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-thumbs-up "
+          />
+        </button>,
+        <button
+          className="white"
+          onClick={[Function]}
+          style={
+            Object {
+              "color": "",
+            }
+          }
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-thumbs-down"
+          />
+        </button>,
+      ],
+      "className": "likebuttons",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <i
+            aria-hidden="true"
+            className="fa fa-thumbs-up "
+          />,
+          "className": "white",
+          "onClick": [Function],
+          "style": Object {
+            "color": "",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "aria-hidden": "true",
+            "children": undefined,
+            "className": "fa fa-thumbs-up ",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <i
+            aria-hidden="true"
+            className="fa fa-thumbs-down"
+          />,
+          "className": "white",
+          "onClick": [Function],
+          "style": Object {
+            "color": "",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "aria-hidden": "true",
+            "children": undefined,
+            "className": "fa fa-thumbs-down",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "i",
+        },
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="white"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "",
+              }
+            }
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-thumbs-up "
+            />
+          </button>,
+          <button
+            className="white"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "",
+              }
+            }
+          >
+            <i
+              aria-hidden="true"
+              className="fa fa-thumbs-down"
+            />
+          </button>,
+        ],
+        "className": "likebuttons",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <i
+              aria-hidden="true"
+              className="fa fa-thumbs-up "
+            />,
+            "className": "white",
+            "onClick": [Function],
+            "style": Object {
+              "color": "",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-hidden": "true",
+              "children": undefined,
+              "className": "fa fa-thumbs-up ",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <i
+              aria-hidden="true"
+              className="fa fa-thumbs-down"
+            />,
+            "className": "white",
+            "onClick": [Function],
+            "style": Object {
+              "color": "",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "aria-hidden": "true",
+              "children": undefined,
+              "className": "fa fa-thumbs-down",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "i",
+          },
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

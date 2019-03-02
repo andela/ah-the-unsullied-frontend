@@ -9,6 +9,7 @@ import ArticleDelete from './ArticleDelete';
 import Nav from '../../common/nav';
 import SocialShare from '../../../components/SocialSharing/shareArticle';
 import Rating from '../../../components/Rating/RatingComponent';
+import LikeDislike from '../LikeDislikeArticle';
 
 class ArticleDetail extends Component {
   state = {
@@ -45,16 +46,10 @@ class ArticleDetail extends Component {
         <div>
           <Nav />
           <ArticleView {...this.props} />
-          <Rating
-            slug={slug}
-            rating={rating}
-          />
+          <Rating slug={slug} rating={rating} />
           <ArticleDelete {...this.props} />
-          <SocialShare
-            title={shareTitle}
-            slug={shareSlug}
-          />
-
+          <LikeDislike {...this.props} />
+          <SocialShare title={shareTitle} slug={shareSlug} />
         </div>
       );
     }

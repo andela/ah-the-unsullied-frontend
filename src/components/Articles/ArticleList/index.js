@@ -72,6 +72,15 @@ class ArticleList extends Component {
                 <span className="grey-text">
                   {date} | {article.read_time}
                 </span>
+                <div className="card-action">
+                  <i className="fa fa-thumbs-up" aria-hidden="true">
+                    {article.likes}
+                  </i>
+                  &nbsp;&nbsp;&nbsp;
+                  <i className="fa fa-thumbs-down" aria-hidden="true">
+                    {article.dislikes}
+                  </i>
+                </div>
               </div>
             </div>
           </div>
