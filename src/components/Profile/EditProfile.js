@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Modal, Input } from 'react-materialize';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import * as profileActions from '../../actions/profile/profileActions';
+import {EditUserProfile} from '../../actions/profile/profileActions';
 import ImageUploaoder from '../../utils/ImageUploaoder';
 import '../../assets/styles/HomePage.scss';
 
@@ -18,17 +17,11 @@ export class ViewProfile extends Component {
     this.onSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    const { bio, image } = this.state;
-    const data = {
-      bio,
-      image
-    };
-    const { actions } = this.props;
-    const username = this.props.auth.user.username;
-    actions.EditUserProfile(username, data);
-  };
+  onChange(e) {
+    this.setState({
+      bio: e.target.value
+    });
+  }
 
   fileHandler = e => {
     const selectFile = e.target.files[0];
@@ -39,90 +32,100 @@ export class ViewProfile extends Component {
     );
   };
 
-  onChange(e) {
-    this.setState({
-      bio: e.target.value
-    });
-  }
+  handleSubmit = e => {
+    e.preventDefault();
+    const { bio, image } = this.state;
+    const data = {
+      bio,
+      image
+    };
+    const username = this.props.auth.user.username;
+    this.props.EditUserProfile(username, data);
+  };
 
-  render() {
-    return (
-      <div>
-        <Modal
-          header="Profile Edit"
-          className="editPage"
-          fixedFooter
-          trigger={
-            <button className="btn waves-effect edit">
-              Edit profile
-              <i className="material-icons right">edit</i>
-            </button>
-          }
-        >
-          <Row>
-            <img
-              src={this.props.image}
-              className="responsive-img circle editPageProfile"
-              onClick={() => this.fileInput.click()}
-              height="100px"
-              width="100px"
-              alt="Avatar"
-            />
-          </Row>
-          <Row>
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="bio">Bio</label>
-              <textarea
-                id="bio"
-                className="materialize-textarea"
-                onChange={this.onChange}
-                defaultValue={this.props.bio}
-              />
+  ownerUpdate = () => {
+    const auth = this.props.auth;
+    const profile = this.props;
+    const profileName = profile.username;
+    const user = auth.user.username;
+
+    if (auth.isAuthenticated) {
+      if (user === profileName) {
+        return (
+          <div>
+            <Modal
+              header="Profile Edit"
+              className="editPage"
+              fixedFooter
+              trigger={
+                <button className="btn waves-effect edit">
+                  Edit profile
+                  <i className="material-icons right">edit</i>
+                </button>
+              }
+            >
               <Row>
-                <Input
-                  s={12}
-                  type="file"
-                  name="image"
-                  ref={fileInput => {
-                    this.fileInput = fileInput;
-                  }}
-                  label="Upload Image"
-                  onChange={this.fileHandler}
-                  defaults={12}
+                <img
+                  src={this.props.image}
+                  className="responsive-img circle editPageProfile"
+                  height="100px"
+                  width="100px"
+                  alt="Avatar"
                 />
               </Row>
-              <Row className="left-align">
-                <button className="btn waves-effect edit " type="submit">
-                  Update
-                </button>
+              <Row>
+                <form onSubmit={this.handleSubmit}>
+                  <label htmlFor="bio">Bio</label>
+                  <textarea
+                    id="bio"
+                    className="materialize-textarea"
+                    onChange={this.onChange}
+                    defaultValue={this.props.bio}
+                  />
+                  <Row>
+                    <Input
+                      s={12}
+                      type="file"
+                      name="image"
+                      label="Upload Image"
+                      onChange={this.fileHandler}
+                      defaults={12}
+                    />
+                  </Row>
+                  <Row className="left-align">
+                    <button className="btn waves-effect edit " type="submit">
+                      Update
+                    </button>
+                  </Row>
+                </form>
               </Row>
-            </form>
-          </Row>
-        </Modal>
-      </div>
-    );
+            </Modal>
+          </div>
+        );
+      }
+    }
+  };
+
+  render() {
+    return <div>{this.ownerUpdate()}</div>;
   }
 }
 
 ViewProfile.propTypes = {
-  actions: PropTypes.func.isRequired,
-  bio: PropTypes.string.isRequired
+  EditUserProfile: PropTypes.func.isRequired,
+  bio: PropTypes.string.isRequired, 
+  image: PropTypes.string.isRequired,
+  auth: PropTypes.object.isRequired
+
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(profileActions, dispatch)
-  };
-}
 
-function mapStateToProps(state) {
-  return {
+export const mapStateToProps= state => ({
     UserProfile: state.profile,
     auth: state.auth
-  };
-}
+})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {EditUserProfile}
 )(ViewProfile);

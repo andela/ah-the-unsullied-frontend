@@ -45,6 +45,11 @@ ShallowWrapper {
       }
     }
     editArticle={[MockFunction]}
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

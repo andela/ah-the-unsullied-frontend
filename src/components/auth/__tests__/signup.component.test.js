@@ -1,75 +1,92 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import Signup, { mapStateToProps } from '../SignUp';
+import Adapter from 'enzyme-adapter-react-16/build';
+import { SignUp, mapStateToProps } from '../SignUp.js';
 
+  Enzyme.configure({ adapter: new Adapter() });
 
-Enzyme.configure({ adapter: new Adapter() });
-
-function setup() {
-  const props = {
-    registerUser: jest.fn()
-  };
-  const wrapper = shallow(<Signup {...props} />);
-  return {
-    props,
-    wrapper
-  };
-}
-
-describe('Signup elements tests', () => {
-  it('renders a the signup form elements', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('form')).toBeDefined();
-    expect(wrapper.find('button')).toBeDefined();
-    expect(wrapper.find('input')).toBeDefined();
-    expect(wrapper.find('input')).toBeDefined();
-  });
-});
-
-describe('Signup', () => {
-  let props;
-  let wrapper;
-
-  beforeEach(() => {
-    props = {
-      success: {},
-      errors: {},
-      history: {},
-      registerUser: jest.fn(() => {
-        Promise.resolve();
-      })
-    };
-    wrapper = shallow(<Signup {...props} />);
-    return {
-      props,
-      wrapper
-    };
-  });
-  const state = {
-    signup:{},
-    errors:{},
-    success:{
-      signup:{
-        success:{}
-      }
-    }
-
-  }
-
-  describe('<Signup /> snapshot', () => {
-    it('should render the create signup page component', () => {
+  describe('Login', () => {
+    let props;
+    let wrapper;
+    let wrapperInstance;
+    let state
+    beforeEach(() => {
+      props = {
+        success: {},
+        signup: {},
+        error: {},
+        history: {
+          push: jest.fn()
+        },
+        registerUser: jest.fn(() => {
+          Promise.resolve();
+        })
+      };
+      state = {
+        signup:{}
+      };
+      wrapper = shallow(<SignUp {...props} />);
+      wrapperInstance = wrapper.instance();
+    });
+    it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot();
     });
- 
-    it('should mapStateToProps', () => {
-      props =mapStateToProps(state);
-      expect(props.success).toEqual(state.signup.success);
-      expect(props.errors).toEqual(state.signup.errors);
-      expect(props.signup).toEqual(state.signup);
 
+    it('should should change state when calling handlechange', () => {
+      const event = {
+        target: {
+          name: 'email',
+          value: 'samm@me.com'
+        }
+      };
+      wrapperInstance.handleChange(event);
+      expect(wrapperInstance.state.email).toEqual(event.target.value);
     });
- 
 
+    it('should initiate signupUser action on calling handleSubmit', () => {
+      const event = {
+        preventDefault: jest.fn(),
+        target: {
+          reset: jest.fn()
+        }
+      };
+      const state = {
+        email: 'sam@me.com',
+        password: 'emal!2we',
+        username: 'sammy'
+      };
+      wrapperInstance.setState(state);
+      wrapperInstance.handleSubmit(event);
+
+      expect(props.registerUser).toHaveBeenCalledWith(state);
+    });
+
+    it('Will change route on signup', () => {
+      wrapper.setProps({
+        signup: {
+          user: {
+            email: 'sam@gmailcom',
+            username: 'sam',
+            token: 'wdnmndm,cndnxxxm,cnms,ncm,ns'
+          }
+        }
+      });
+      expect(props.history.push).toHaveBeenCalledWith('/login');
+    });
+    it('Will change route on signup', () => {
+      wrapper.setProps({
+        signup: {
+          user: {
+            email: 'sam@gmailcom',
+            username: 'sam',
+            token: 'wdnmndm,cndnxxxm,cnms,ncm,ns'
+          }
+        }
+      });
+      expect(props.history.push).toHaveBeenCalledWith('/login');
+    });
+    it('mapStateToProps', () => {
+      const propsState = mapStateToProps(state);
+      expect(propsState.signup).toEqual(state.signup);
+    });
   });
-});

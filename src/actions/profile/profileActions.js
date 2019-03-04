@@ -1,11 +1,11 @@
-import axiosConfig from '../../utils/axios';
+import { toast } from 'react-toastify';
+import axiosConfig from '../../axiosConfig';
 import setAuthToken from '../../utils/setAuthToken';
 import { VIEW_PROFILE, EDIT_PROFILE, GET_ERRORS } from './profileTypes';
-import { toast } from 'react-toastify';
 
 
-const token = localStorage.getItem('jwtToken')
-setAuthToken(token)
+const token = localStorage.getItem('jwtToken');
+setAuthToken(token);
 
 export const getUserProfile = username => async dispatch => {
   await axiosConfig
@@ -32,10 +32,7 @@ export const EditUserProfile = (username, data) => async dispatch => {
     .request({
       method: 'put',
       url: `profiles/${username}`,
-      data: data,
-      headers: {
-        'content-type': 'application/json'
-      }
+      data: data
     })
     .then(response => {
       dispatch({
@@ -44,13 +41,11 @@ export const EditUserProfile = (username, data) => async dispatch => {
       });
       toast.success('Updated Successfully');
     })
-    .catch(error =>{
-
+    .catch(error => {
       dispatch({
         type: GET_ERRORS,
         payload: error.response.data
-
       });
-      toast.error(Object.values(error.response.data.profile)[0])
+      toast.error(Object.values(error.response.data.profile)[0]);
     });
 };

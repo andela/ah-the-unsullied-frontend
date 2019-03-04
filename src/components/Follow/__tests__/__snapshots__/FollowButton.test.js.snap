@@ -1,9 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Signup elements tests should render correctly 1`] = `
+exports[`follow button should render the follow button 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <articleView />,
+  Symbol(enzyme.__unrendered__): <FollowButton
+    auth={
+      Object {
+        "isAuthenticated": true,
+        "user": Object {
+          "username": "nesh",
+        },
+      }
+    }
+    bio="i have abio"
+    follow={[MockFunction]}
+    image="hshhshs"
+    username="nesh"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -17,20 +30,24 @@ ShallowWrapper {
     "instance": null,
     "key": undefined,
     "nodeType": "host",
-    "props": Object {},
+    "props": Object {
+      "children": undefined,
+    },
     "ref": null,
     "rendered": null,
-    "type": "articleView",
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
-      "props": Object {},
+      "props": Object {
+        "children": undefined,
+      },
       "ref": null,
       "rendered": null,
-      "type": "articleView",
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -54,5 +71,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

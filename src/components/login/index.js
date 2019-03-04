@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/loginActions';
 import '../../assets/css/login.scss';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {

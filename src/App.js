@@ -14,6 +14,9 @@ import Resetpassword from './components/login/passwordreset/Resetpassword';
 import MyEditor from './components/Articles/CreateArticle';
 import Error404Page from './components/common/404errorPage';
 import Profile from './components/Profile/Profile';
+import FollowListView from './components/Follow/FollowListView';
+import FollowerListView from './components/Follow/FollowerListView';
+
 import { Home } from './components/home';
 import Article from './components/Articles/ArticleView/ArticleDetail';
 import EditArticle from './components/Articles/EditArticle';
@@ -60,6 +63,17 @@ const App = () => (
                 component={Verification}
               />
               <Route path="/article/:slug" exact component={Article} />
+              <Route
+                path="/:username/following"
+                exact
+                component={FollowListView}
+              />
+              <Route
+                path="/:username/followers"
+                exact
+                component={FollowerListView}
+              />
+              <Route path="/profile/:username" exact component={Profile} />
               <Route component={Error404Page} />
             </Switch>
           </div>

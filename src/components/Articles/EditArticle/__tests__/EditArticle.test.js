@@ -22,6 +22,11 @@ describe('EditArticle', () => {
       editArticle: jest.fn(() => {
         Promise.resolve();
       }),
+      history: {
+        push: jest.fn(() => {
+          Promise.resolve();
+        })
+      },
       articlereducer: {
         article: {  
           article:{
@@ -75,5 +80,15 @@ describe('EditArticle', () => {
     wrapperInstance.setState(state);
     wrapperInstance.onHandleSubmit(e);
     expect(props.editArticle).toHaveBeenCalled();
+  });
+  it('Will change route', () => {
+    wrapper.setProps({
+      articles: {
+        newArticle: { article: {
+          slug: 'how-to-become-a-god-xd0ctx6n'
+        }}
+      }
+    });
+    expect(props.history.push).toHaveBeenCalledWith('/article/how-to-become-a-god-xd0ctx6n');
   });
 });

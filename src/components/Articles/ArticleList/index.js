@@ -43,6 +43,7 @@ class ArticleList extends Component {
     const articles = arr.map(article => {
       const date = article.created_at.slice(0, 10);
       const slug = article.slug;
+      const username = article.author.username;
 
       return (
         <div className="row">
@@ -65,7 +66,17 @@ class ArticleList extends Component {
                 </p>
               </div>
               <p className="author-text grey-text">
-                by <span className="teal-text">{article.author.username}</span>
+                by{' '}
+                <span className="teal-text">
+                  <Link
+                    to={{
+                      pathname: `/profile/${username}`,
+                      username: { username }
+                    }}
+                  >
+                    {article.author.username}
+                  </Link>
+                </span>
               </p>
               <div className="dateinfo">
                 <i className="material-icons">date_range</i>

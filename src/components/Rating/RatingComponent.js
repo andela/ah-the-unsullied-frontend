@@ -7,7 +7,7 @@ import {
   getAverageRating
 } from '../../actions/Rating/ratingActions';
 
- class ArticleRating extends Component{
+export class ArticleRating extends Component{
 
   componentDidMount() {
     const {getAverageRating} = this.props;
@@ -79,7 +79,7 @@ ArticleRating.propTypes = {
   slug: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return{
     auth: state.auth,
     article: state.articlereducer,

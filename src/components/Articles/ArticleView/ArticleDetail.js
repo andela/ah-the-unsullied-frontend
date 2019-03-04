@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Col, Preloader, Row } from 'react-materialize';
-import * as articleActions from '../../../actions/articles/articleActions';
+import {getArticle}from '../../../actions/articles/articleActions';
 import ArticleView from './views/ArticleView';
 import ArticleDelete from './ArticleDelete';
 import Nav from '../../common/nav';
@@ -12,15 +11,14 @@ import Rating from '../../../components/Rating/RatingComponent';
 import LikeDislike from '../LikeDislikeArticle';
 import BookmarkArticle from './BookmarkArticle';
 
-class ArticleDetail extends Component {
+export class ArticleDetail extends Component {
   state = {
     fetched: false
   };
 
   componentDidMount = () => {
-    const { actions } = this.props;
     const slug = this.props.match.params.slug;
-    actions.getArticle(slug).then(() => {
+    this.props.getArticle(slug).then(() => {
       this.setState({
         fetched: true
       });
@@ -58,27 +56,21 @@ class ArticleDetail extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(articleActions, dispatch)
-  };
-}
+
 
 ArticleDetail.propTypes = {
   getArticles: PropTypes.func.isRequired,
-  actions: PropTypes.func.isRequired,
+  getArticle: PropTypes.func.isRequired,
   match: PropTypes.func.isRequired,
   article: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
+export const mapStateToProps = state => ({
     article: state.articlereducer,
     auth: state.auth
-  };
-}
+})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+ {getArticle}
 )(ArticleDetail);

@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`single article should render article view component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <articleView
+    article={
+      Object {
+        "author": Object {
+          "bio": "i have abio",
+          "image": "hshhshs",
+          "username": "nesh",
+        },
+        "body": "gsgsgsg",
+        "created_at": "01-01-2019",
+        "description": "some stuff",
+        "dislikes": 1,
+        "displiked": false,
+        "is_reported": false,
+        "liked": false,
+        "likes": 2,
+        "slug": "my-article",
+        "title": "my article",
+      }
+    }
+    auth={
+      Object {
+        "isAuthenticated": true,
+        "user": Object {
+          "username": "nesh",
+        },
+      }
+    }
+    getArticle={[MockFunction]}
+    ownerUpdate={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "article": Object {
+        "author": Object {
+          "bio": "i have abio",
+          "image": "hshhshs",
+          "username": "nesh",
+        },
+        "body": "gsgsgsg",
+        "created_at": "01-01-2019",
+        "description": "some stuff",
+        "dislikes": 1,
+        "displiked": false,
+        "is_reported": false,
+        "liked": false,
+        "likes": 2,
+        "slug": "my-article",
+        "title": "my article",
+      },
+      "auth": Object {
+        "isAuthenticated": true,
+        "user": Object {
+          "username": "nesh",
+        },
+      },
+      "getArticle": [MockFunction],
+      "ownerUpdate": [MockFunction],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "articleView",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "article": Object {
+          "author": Object {
+            "bio": "i have abio",
+            "image": "hshhshs",
+            "username": "nesh",
+          },
+          "body": "gsgsgsg",
+          "created_at": "01-01-2019",
+          "description": "some stuff",
+          "dislikes": 1,
+          "displiked": false,
+          "is_reported": false,
+          "liked": false,
+          "likes": 2,
+          "slug": "my-article",
+          "title": "my article",
+        },
+        "auth": Object {
+          "isAuthenticated": true,
+          "user": Object {
+            "username": "nesh",
+          },
+        },
+        "getArticle": [MockFunction],
+        "ownerUpdate": [MockFunction],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "articleView",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

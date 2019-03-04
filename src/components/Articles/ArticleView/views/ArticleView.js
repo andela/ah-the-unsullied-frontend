@@ -1,14 +1,16 @@
 import { Row, Col } from 'react-materialize';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import dateformat from 'dateformat';
 import renderHTML from 'react-render-html';
 import React from 'react';
 import '../../../../assets/css/articleDetail.scss';
 
+
 const articleDetail = props => {
   const article = props.article.article.article;
+
   const author = article.author;
-  const followStatus = author.following;
+  const username = author.username;
   const tags = article.tag_list;
   const date = article.created_at;
   const formatDate = dateformat(date, 'dddd, mmmm dS, yyyy');
@@ -18,32 +20,12 @@ const articleDetail = props => {
       return <button className="tags-btn">{item}</button>;
     });
 
-  const getImage = () => {
-    if (!author.image) {
-      const new_image = require('../../../../assets/images/profile.png');
-      return new_image;
-    } else {
-      return author.image;
-    }
-  };
-
-  const followBtn = () => {
-    if (followStatus === null) {
-      return (
-        <div>
-          <button className="follow">Follow</button>
-        </div>
-      );
-    }
-  };
-
   const ownerUpdate = () => {
     const auth = props.auth;
     if (auth.isAuthenticated) {
       const article = props.article.article.article;
       const author = article.author;
       const user = auth.user.username;
-
       if (user === author.username) {
         return (
           <div className="update-link">
@@ -64,26 +46,32 @@ const articleDetail = props => {
         <Row>
           <Col s={1}>
             <img
-              src={getImage()}
+              src={author.image}
               className="responsive-img circle escalate"
               height="50px"
               width="50px"
               alt="Avatar"
             />
           </Col>
-
           <Col s={1}>
-            <a href="/">{author.username}</a>
-            {followBtn()}
+            <Link
+              to={{
+                pathname: `/profile/${username}`,
+                username: { username }
+              }}
+            >
+              {username}
+            </Link>
+            <div>
+            </div>
           </Col>
           <Col s={2}>
-            {' '}
             <b>{article.read_time}</b>
           </Col>
           <Col>
             <b className="description">{formatDate}</b>
           </Col>
-          { ownerUpdate() }
+          {ownerUpdate()}
         </Row>
         <div className="bd-image">
           <p>{renderHTML(article.body)}</p>

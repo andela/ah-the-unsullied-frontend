@@ -7,10 +7,12 @@ import signUpReducer from './signUpReducer';
 import verificationReducer from './verificationReducer';
 import passwordreset from './passwordResetReducer';
 import articleReducer from './ArticleReducers/articleReducer';
-import articlereducer from './Articles';
 import ratingReducer from './RatingsReducer/RatingsReducer';
 import likeDislikeReducer from './LikeReducer';
 import bookmarkReducer from './BoomarkReducer';
+import articlereducer from './Articles';
+import followers from './profile/followerReducer';
+import following from './profile/followingReducer';
 
 export default combineReducers({
   signup: signUpReducer,
@@ -24,5 +26,7 @@ export default combineReducers({
   articlereducer,
   rating: ratingReducer,
   likesDislikes: likeDislikeReducer,
-  bookmarkReducer: bookmarkReducer
+  bookmarkReducer: bookmarkReducer,
+  followers,
+  following
 });
