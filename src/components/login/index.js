@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 
 import { loginUser } from '../../actions/loginActions';
 import '../../assets/css/login.scss';
-import SignUp from '../auth/SignUp';
 
 class Login extends Component {
   constructor(props) {
