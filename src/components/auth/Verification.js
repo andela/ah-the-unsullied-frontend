@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { verifyUser } from '../../actions/verification';
 
-class Verification extends Component {
+export class Verification extends Component {
   state = {
     errors: {}
   };

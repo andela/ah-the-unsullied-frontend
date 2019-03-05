@@ -9,7 +9,7 @@ import { Col, Preloader, Row } from 'react-materialize';
 import { getArticles } from '../../../actions/ArticleActions/actions';
 import '../../../assets/css/articles.scss';
 
-class ArticleList extends Component {
+export class ArticleList extends Component {
   constructor() {
     super();
     this.state = {
@@ -143,7 +143,7 @@ ArticleList.propTypes = {
 ArticleList.defaultProps = {
   articles: PropTypes.array.isRequired
 };
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return state.articles;
 };
 export default withRouter(

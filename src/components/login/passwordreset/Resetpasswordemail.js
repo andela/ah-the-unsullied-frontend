@@ -5,7 +5,7 @@ import '../../../app.scss';
 import {sendEmail} from '../../../actions/resetPasswordAction';
 import { logoutUser } from '../../../actions/loginActions';
 
-class Resetemail extends Component {
+export class Resetemail extends Component {
 
     state ={
         email:'',
@@ -24,7 +24,6 @@ class Resetemail extends Component {
                 });
         const user_email= this.state.email;
         this.props.sendEmail(user_email);
-        this.inputEmail.value=null
     };
   render() {
     const emailsendsuccess = this.props.sendemail
@@ -76,7 +75,7 @@ class Resetemail extends Component {
     )
   }
 }
-const mapStateToProps=(thestate)=>{
+export const mapStateToProps=(thestate)=>{
     return{
         sendemail:thestate.passwordreset.sendemail,
         sendemailerr:thestate.passwordreset.sendemailerr,

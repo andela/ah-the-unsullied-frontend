@@ -1,107 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Verification /> snapshot Component should match the snapshot 1`] = `
+exports[`verification should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(Verification) />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "children": [Function],
-    },
-    "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
+  Symbol(enzyme.__unrendered__): <Verification
+    match={
+      Object {
+        "params": Object {
+          "token": "fjdsafjkdajkfjkjkvdjskaahjsdhsjfhjkhgdsjfdfhsdjkhajkfhgrlk",
         },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
-      },
-    },
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": [Function],
-      },
-      "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
+      }
+    }
+    verify="sa@gmail.com"
+    verifyUser={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "pk": undefined,
+              "token": "fjdsafjkdajkfjkjkvdjskaahjsdhsjfhjkhgdsjfdfhsdjkhajkfhgrlk",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
           },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
-        },
-      },
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-  Symbol(enzyme.__childContext__): null,
-}
-`;
-
-exports[`Verification <Signup /> snapshot should render the create signup page component 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(Verification)
-    verify={Object {}}
-    verifyUser={[MockFunction]}
+        ],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -115,59 +43,491 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": <div
+        className="row valign-wrapper center-align"
+      >
+        <div
+          className="col s6 offset-s3 valign"
+        >
+          <div
+            className="card grey darken-1"
+          >
+            <div
+              className="card-content white-text"
+            >
+              <span
+                className="card-title"
+              >
+                Verification
+              </span>
+            </div>
+            <div
+              className="card-action"
+            >
+              <p>
+                Proceed to login into your account 
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>,
+      "className": "container ",
     },
     "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
-        },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="col s6 offset-s3 valign"
+        >
+          <div
+            className="card grey darken-1"
+          >
+            <div
+              className="card-content white-text"
+            >
+              <span
+                className="card-title"
+              >
+                Verification
+              </span>
+            </div>
+            <div
+              className="card-action"
+            >
+              <p>
+                Proceed to login into your account 
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>,
+        "className": "row valign-wrapper center-align",
       },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="card grey darken-1"
+          >
+            <div
+              className="card-content white-text"
+            >
+              <span
+                className="card-title"
+              >
+                Verification
+              </span>
+            </div>
+            <div
+              className="card-action"
+            >
+              <p>
+                Proceed to login into your account 
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
+          </div>,
+          "className": "col s6 offset-s3 valign",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="card-content white-text"
+              >
+                <span
+                  className="card-title"
+                >
+                  Verification
+                </span>
+              </div>,
+              <div
+                className="card-action"
+              >
+                <p>
+                  Proceed to login into your account 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>,
+            ],
+            "className": "card grey darken-1",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="card-title"
+                  >
+                    Verification
+                  </span>,
+                  null,
+                  null,
+                ],
+                "className": "card-content white-text",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Verification",
+                    "className": "card-title",
+                  },
+                  "ref": null,
+                  "rendered": "Verification",
+                  "type": "span",
+                },
+                null,
+                null,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <p>
+                  Proceed to login into your account 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Login
+                  </Link>
+                </p>,
+                "className": "card-action",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Proceed to login into your account ",
+                    <Link
+                      replace={false}
+                      to="/"
+                    >
+                      Login
+                    </Link>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Proceed to login into your account ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Login",
+                      "replace": false,
+                      "to": "/",
+                    },
+                    "ref": null,
+                    "rendered": "Login",
+                    "type": [Function],
+                  },
+                ],
+                "type": "p",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
     },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": <div
+          className="row valign-wrapper center-align"
+        >
+          <div
+            className="col s6 offset-s3 valign"
+          >
+            <div
+              className="card grey darken-1"
+            >
+              <div
+                className="card-content white-text"
+              >
+                <span
+                  className="card-title"
+                >
+                  Verification
+                </span>
+              </div>
+              <div
+                className="card-action"
+              >
+                <p>
+                  Proceed to login into your account 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "container ",
       },
       "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
-          },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="col s6 offset-s3 valign"
+          >
+            <div
+              className="card grey darken-1"
+            >
+              <div
+                className="card-content white-text"
+              >
+                <span
+                  className="card-title"
+                >
+                  Verification
+                </span>
+              </div>
+              <div
+                className="card-action"
+              >
+                <p>
+                  Proceed to login into your account 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>,
+          "className": "row valign-wrapper center-align",
         },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card grey darken-1"
+            >
+              <div
+                className="card-content white-text"
+              >
+                <span
+                  className="card-title"
+                >
+                  Verification
+                </span>
+              </div>
+              <div
+                className="card-action"
+              >
+                <p>
+                  Proceed to login into your account 
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    Login
+                  </Link>
+                </p>
+              </div>
+            </div>,
+            "className": "col s6 offset-s3 valign",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="card-content white-text"
+                >
+                  <span
+                    className="card-title"
+                  >
+                    Verification
+                  </span>
+                </div>,
+                <div
+                  className="card-action"
+                >
+                  <p>
+                    Proceed to login into your account 
+                    <Link
+                      replace={false}
+                      to="/"
+                    >
+                      Login
+                    </Link>
+                  </p>
+                </div>,
+              ],
+              "className": "card grey darken-1",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <span
+                      className="card-title"
+                    >
+                      Verification
+                    </span>,
+                    null,
+                    null,
+                  ],
+                  "className": "card-content white-text",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Verification",
+                      "className": "card-title",
+                    },
+                    "ref": null,
+                    "rendered": "Verification",
+                    "type": "span",
+                  },
+                  null,
+                  null,
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <p>
+                    Proceed to login into your account 
+                    <Link
+                      replace={false}
+                      to="/"
+                    >
+                      Login
+                    </Link>
+                  </p>,
+                  "className": "card-action",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "Proceed to login into your account ",
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        Login
+                      </Link>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Proceed to login into your account ",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": "Login",
+                        "replace": false,
+                        "to": "/",
+                      },
+                      "ref": null,
+                      "rendered": "Login",
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "p",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
       },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

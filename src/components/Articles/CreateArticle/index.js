@@ -158,7 +158,7 @@ MyEditor.propTypes = {
 MyEditor.defaultProps = {
   createArticle: PropTypes.array.isRequired
 };
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return state;
 };
 

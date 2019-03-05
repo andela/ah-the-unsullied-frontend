@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { resetPassword } from '../../../actions/resetPasswordAction';
 import { logoutUser } from '../../../actions/loginActions';
 
-class Resetpassword extends Component {
+export class Resetpassword extends Component {
   state = {
     password: '',
     confirm_password: '',
@@ -102,7 +102,7 @@ class Resetpassword extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     ...state,
     message: state.passwordreset.message,

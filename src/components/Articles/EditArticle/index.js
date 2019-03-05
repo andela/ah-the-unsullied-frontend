@@ -164,7 +164,7 @@ EditArticle.propTypes = {
 EditArticle.defaultProps = {
   editArticle: PropTypes.array.isRequired
 };
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return state;
 };
 
